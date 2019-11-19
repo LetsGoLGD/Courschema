@@ -1,10 +1,9 @@
 package servlet;
 
 
-
 import bean.CourseBean;
-import service.ShowService;
-import service.ShowServiceImpl;
+import service.UpdateService;
+import service.UpdateServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,17 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ShowServlet")
-public class ShowServlet extends HttpServlet {
+@WebServlet(name = "UpdateServlet")
+public class UpdateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String year = "";
-        String department = "";
-        String searchItem = "";
-        year = request.getParameter("year");
-        department = request.getParameter("year");
-        searchItem = request.getParameter("year");
-        ShowService ss = new ShowServiceImpl();
-        List<CourseBean> showCourse = ss.courseList(year,department,searchItem);
+        request.setCharacterEncoding("UTF-8");
+        String course = request.getParameter("course");
+        String department = request.getParameter("department");
+        String year = request.getParameter("year");
+        String plan = request.getParameter("plan");
+        UpdateService us = new UpdateServiceImpl();
+        List<CourseBean> showCourse = us.courseInfo(course,department,year,plan);
         request.setAttribute("List",showCourse);
         request.getRequestDispatcher("page.jsp").forward(request,response);
     }
@@ -32,5 +30,4 @@ public class ShowServlet extends HttpServlet {
             ServletException, IOException {
         doGet(request, response);
     }
-
 }
