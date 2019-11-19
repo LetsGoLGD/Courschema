@@ -17,6 +17,7 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println(username+" "+password);
         UserService userservice = new UserServiceImpl();
         int result = 0;
         result = userservice.login(username, password);
@@ -25,12 +26,11 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("BookServlet").forward(request, response);
         } else {
             request.setAttribute("msg", "The username or password is wrong.");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.html").forward(request, response);
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
         doGet(request, response);
     }
-
 }
