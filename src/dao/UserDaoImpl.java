@@ -1,10 +1,7 @@
 package dao;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-
-import bean.UserBean;
 import util.DBUtil;
-import com.mysql.jdbc.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 public class UserDaoImpl implements UserDao {

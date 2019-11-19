@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 public class DBUtil {
     public Connection getConnection() throws Exception{
         Connection connection=null;
-        String diverClass="com.mysql.jdbc.Driver";
-        String url="jdbc:mysql://localhost:5432/postgres";
+        String diverClass="org.postgresql.Driver";
+        String url="jdbc:postgresql://localhost:5432/postgres";
         String name="ooad_proj";
         String password="ooad123";
         Class.forName(diverClass);
