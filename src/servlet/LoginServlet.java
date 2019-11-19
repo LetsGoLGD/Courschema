@@ -1,6 +1,9 @@
 package servlet;
 
 
+import service.UserService;
+import service.UserServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +17,15 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        UserinfoService userinfoservice = new UserinfoServiceImpl();
+        UserService userservice = new UserServiceImpl();
         int result = 0;
-        result = userinfoservice.login(username, password);
+        result = userservice.login(username, password);
         if (result == 1) {
             System.out.println("visiting database successfully");
             request.getRequestDispatcher("BookServlet").forward(request, response);
         } else {
             request.setAttribute("msg", "The username or password is wrong.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

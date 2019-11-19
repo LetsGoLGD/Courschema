@@ -8,6 +8,22 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ShowServlet</servlet-name>
+        <servlet-class>servlet.ShowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowServlet</servlet-name>
+        <url-pattern>/ShowServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

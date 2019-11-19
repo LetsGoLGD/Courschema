@@ -7,7 +7,7 @@ public class DBUtil {
     public Connection getConnection() throws Exception{
         Connection connection=null;
         String diverClass="com.mysql.jdbc.Driver";
-        String url="jdbc:mysql://localhost:5432/courschema";
+        String url="jdbc:mysql://localhost:5432/postgres";
         String name="ooad_proj";
         String password="ooad123";
         Class.forName(diverClass);
