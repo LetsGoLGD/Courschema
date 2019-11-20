@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -21,12 +22,14 @@ public class LoginServlet extends HttpServlet {
         UserService userservice = new UserServiceImpl();
         int result = 0;
         result = userservice.login(username, password);
+        PrintWriter out = response.getWriter();
         if (result == 1) {
             System.out.println("visiting database successfully");
-            request.getRequestDispatcher("BookServlet").forward(request, response);
+            request.setAttribute("msg","Sussess.");
+            request.getRequestDispatcher("schema.jsp").forward(request, response);
         } else {
             request.setAttribute("msg", "The username or password is wrong.");
-            request.getRequestDispatcher("login.html").forward(request, response);
+            out.println("<script>alert('Username or password is wrong'); window.location='login.jsp' </script>");
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

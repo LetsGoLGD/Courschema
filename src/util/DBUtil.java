@@ -8,8 +8,8 @@ public class DBUtil {
         Connection connection=null;
         String diverClass="org.postgresql.Driver";
         String url="jdbc:postgresql://localhost:5432/postgres";
-        String name="ooad_proj";
-        String password="ooad123";
+        String name="postgres";
+        String password="zycCC988";
         Class.forName(diverClass);
         connection=DriverManager.getConnection(url,name,password);
         return connection;

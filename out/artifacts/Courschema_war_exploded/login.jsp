@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>SUSTech Courschema System</title>
     <link rel="stylesheet" type="text/css" href="login.css"/>
-    <script>
-        function alertMessage(String) {
-            alert(String);
+    <script language="javascript">
+        function alertMessage(str) {
+            if(str != null){
+                alert(String);
+            }
         }
     </script>
 </head>
@@ -35,8 +37,9 @@
         </div>
 
         <div id ="btn">
-            <input type="submit" id="add" value="Login" onclick="alertMessage('Message')"><br>
+            <input type="submit" id="add" value="Login"><br>
         </div>
+<%--        <%=request.getAttribute("msg")%>--%>
 
     </form>
 </div>

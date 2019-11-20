@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SUSTech Parking Record</title>
+    <link rel="stylesheet" type="text/css" href="upload.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="https://cdn.bootcss.com/bootstrap-select/1.12.1/css/bootstrap-select.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+</head>
+<body>
+<div>
+    <img src="logo1.png" alt="logo1" width=15%/>
+</div>
+<form style="text-align: center">
+    <p id="forms">
+        <span id="oneform">
+            Course name: <input type="text" class="course_name">
+            Major:
+                <span id="mul">
+                <select class="selectpicker show-menu-arrow form-control" multiple>
+                    <option value="0">CS</option>
+                    <option value="1">Math</option>
+                    <option value="2">Physics</option>
+                    <option value="3">Chemistry</option>
+                    <option value="4">Biology</option>
+                </select>
+                </span>
+            Credits:
+                <select class="credit">
+                    <option>--</option>
+                    <option>1</option>
+                    <option>1.5</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            Course hours: <input type="number" class="course_number">
+            Teacher name: <input type="text" class="tname"><br>
+<!--            <button class="del_form">Delete this course</button>-->
+        </span>
+    </p>
+    <button type="button" onclick="add_form()"><span>Add a course</span></button>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="a">
+    <h3>Upload Record</h3>
+</div>
+
+<div id="ta">
+    <table id="table-1">
+        <thead>
+            <th>File name</th>
+            <th>Upload time</th>
+        </thead>
+        <tbody id="tbody" style="display: none">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="background" class="back">
+    <form name="form1" id="form" method="post" enctype="multipart/form-data">
+        <input type="file" id="file" name="file" style="display:none" onchange="upload()">
+        <input type="submit" id="submit" name="submit" style="display:none">
+        <span id="prompt">Please choose a schema to upload from your computer.</span><br>
+        <button type="button" id="sub" onclick="choose()"><span>Choose file</span></button>
+    </form>
+</div>
+
+<script type="text/javascript" src="upload.js"></script>
+</body>
+</html>

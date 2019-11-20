@@ -1,0 +1,146 @@
+@CHARSET	"UTF-8";
+
+* {
+    font-family: Futura;
+
+}
+#mul{
+    width: 150px;
+    display: inline-block;
+    /*margin: 0 auto;*/
+}
+#a	{
+    font-size:	20px;
+    text-align: center;
+
+}
+
+#background	{
+    line-height:	40px;
+    width:	450px;
+    height:	150px;
+    text-align:	center;
+    background-color: rgb(230, 238, 214);
+    font-size:	15px;
+    margin:	40px auto 0;
+    /*position: relative;*/
+    border: 1px solid rgb(211, 202, 221);
+}
+
+#prompt{
+    font-weight: bold;
+}
+
+#form{
+    margin: 30px auto 0;
+}
+
+#table-1 {
+    border: 1px solid rgb(211, 202, 221);
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+/* Padding and font style */
+#table-1 td, #table-1 th {
+    padding: 5px 10px;
+    font-size: 15px;
+    color: rgb(95, 74, 121);
+}
+
+/* Alternating background colors */
+#table-1 tr:nth-child(even) {
+    background: rgb(223, 216, 232)
+}
+#table-1 tr:nth-child(odd) {
+    background: #FFF
+}
+
+
+#sub {
+    border-radius: 2px;
+    background-color: #5ca1e1;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 8px;
+    width: 110px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 12px;
+    box-shadow: 0 5px 10px -4px rgba(0, 0, 0,.7);
+}
+
+#sub{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#sub:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 7px;
+    right: -10px;
+    transition: 0.5s;
+}
+
+#sub:hover{
+    padding-right: 12px;
+    padding-left:4px;
+}
+
+#sub:hover:after {
+    opacity: 1;
+    right: 5px;
+}
+
+/*#multi{*/
+/*    width: 120px;*/
+/*    height: 25px;*/
+/*}*/
+
+/*#bu{*/
+/*    text-align: center;*/
+/*    margin: 20px auto 0*/
+/*}*/
+
+/*#close-button, #open_btn, #choose{*/
+/*    !* 文字颜色 *!*/
+/*    color: #0099CC;*/
+/*    !* 清除背景色 *!*/
+/*    background: transparent;*/
+/*    !* 边框样式、颜色、宽度 *!*/
+/*    border: 2px solid #0099CC;*/
+/*    !* 给边框添加圆角 *!*/
+/*    border-radius: 6px;*/
+/*    !* 字母转大写 *!*/
+/*    border: none;*/
+/*    color: white;*/
+/*    padding: 10px 18px;*/
+/*    text-align: center;*/
+/*    display: inline-block;*/
+/*    font-size: 14px;*/
+/*    margin: 4px 2px;*/
+/*    -webkit-transition-duration: 0.4s; !* Safari *!*/
+/*    transition-duration: 0.4s;*/
+/*    cursor: pointer;*/
+/*    text-decoration: none;*/
+/*    !*text-transform: uppercase;*!*/
+/*}*/
+/*#close-button, #open_btn, #choose{*/
+/*    background-color: white;*/
+/*    color: black;*/
+/*    border: 2px solid #008CBA;*/
+/*}*/
+/*#close-button, #open_btn:hover, #choose {*/
+/*    background-color: #008CBA;*/
+/*    color: white;*/
+/*}*/
+
+
+
