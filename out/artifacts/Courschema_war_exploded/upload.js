@@ -91,7 +91,7 @@ document.querySelectorAll("[multip]").forEach(function(e){
             }
 
         }
-    })
+    });
 //添加属性choose 此属性添加到option中用来指定默认值
     e.value=choosevalue;
-})
+});
