@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>SUSTech Courschema System</title>
     <link rel="stylesheet" type="text/css" href="login.css"/>
-
+    <script>
+        function alertMessage(String) {
+            alert(String);
+        }
+    </script>
 </head>
 <body>
 <form action="LoginServlet" method="post">
@@ -31,13 +35,11 @@
         </div>
 
         <div id ="btn">
-            <input type="submit" id="add" value="Login"><br>
+            <input type="submit" id="add" value="Login" onclick="alertMessage('Message')"><br>
         </div>
 
     </form>
 </div>
-
-<script type="text/javascript" src="login.js"></script>
 </form>
 </body>
 </html>
