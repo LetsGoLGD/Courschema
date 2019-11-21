@@ -34,5 +34,13 @@
         <servlet-name>UpdateServlet</servlet-name>
         <url-pattern>/UpdateServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>unit_courseServlet</servlet-name>
+        <servlet-class>servlet.unit_courseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>unit_courseServlet</servlet-name>
+        <url-pattern>/unit_courseServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

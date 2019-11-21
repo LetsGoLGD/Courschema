@@ -1,3 +1,5 @@
+<%@ page import="bean.unit_courseBean" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -45,7 +47,6 @@
     <!--        &lt;!&ndash;TODO: this picture is only for test, we will remove it after release newer version&ndash;&gt;-->
     <!--        <img src="assert/test.png" alt="this is only for test" class="w3-border">-->
     <!--    </div>-->
-
     <div class="w3-bar w3-teal" style="background-color: rgb(0,63,67);align-items:center">
         <div></div>
         <div class="w3-dropdown-hover">
@@ -81,10 +82,63 @@
         <div class="w3-bar-item w3-hover-green">Elective</div>
         <div class="w3-bar-item w3-hover-blue">Core</div>
     </div>
-    <div>
 
+
+    <form action="unit_courseServlet" method="post">
+    <div align="center">
+        unit_year: <input type="text" name="unit_year"
+                         value="<%=request.getAttribute("unit_year") != null ?
+                          request.getAttribute("unit_year") : "" %>"
+                         size="7"/>
     </div>
-
+    <div align="center">
+        unit_id_major: <input type="text" name="unit_id_major"
+                          value="<%=request.getAttribute("unit_id_major") != null ?
+                          request.getAttribute("unit_id_major") : ""%>"
+                          size="7"/>
+    </div>
+    <div align="center">
+        unit_plan_order: <input type="text" name="unit_plan_order"
+                          value="<%=request.getAttribute("unit_plan_order") != null ?
+                          request.getAttribute("unit_plan_order") : ""%>"
+                          size="7"/>
+    </div>
+        <div align="center">
+            <input type="submit" value="OK" style="height:40px;width: 60px;"/>
+        </div>
+    </form>
+    <%
+        List<unit_courseBean> unit_courseList = (List<unit_courseBean>) request.getAttribute("unit_courseList");
+    %>
+    <table class="w3-table-all w3-centered">
+        <tbody>
+        <tr>
+            <th>Course Name</th>
+            <th>Course ID</th>
+            <th>Credits</th>
+            <th>Recommend Semester</th>
+            <th>Department</th>
+        </tr>
+            <% if (unit_courseList != null && unit_courseList.size() >0){
+           for (int j = 0;j<unit_courseList.size();j++){
+             unit_courseBean tempUnit_course = unit_courseList.get(j);
+            %>
+        <tr>
+            <td><%=tempUnit_course.getName()%></td>
+            <td><%=tempUnit_course.getAbbre_course()%></td>
+            <td><%=tempUnit_course.getScore_course()%></td>
+            <td><%=tempUnit_course.getSemeter_id()%></td>
+            <td><%=tempUnit_course.getName_major()%></td>
+        </tr>
+            <%}}
+        else{
+        %>
+        <tr>
+            <td colspan="6">can not get the information</td>
+        </tr>
+            <%}%>
+        </tbody>
+    </table>
     <table class="w3-table-all w3-centered">
         <tbody>
         <!--TODO: connect with database-->
@@ -174,14 +228,11 @@
         </tr>
         </tbody>
     </table>
+
     <div class="w3-border w3-display-right">
         <span class="w3-tag">Credits requirement</span>
         <p></p>
     </div>
 </div>
-
-
-
-
 </body>
 </html>

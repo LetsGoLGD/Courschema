@@ -1,7 +1,7 @@
 package dao;
 
 import bean.CourseBean;
-import util.DBUtil;
+import databases.DBUtil;
 
 import java.sql.*;
 import java.util.ArrayList;

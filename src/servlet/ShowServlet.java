@@ -17,6 +17,7 @@ import java.util.List;
 @WebServlet(name = "ShowServlet")
 public class ShowServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("show let do get begin");
         String year = "";
         String department = "";
         String searchItem = "";
