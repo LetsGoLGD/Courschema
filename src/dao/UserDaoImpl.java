@@ -22,7 +22,6 @@ public class UserDaoImpl implements UserDao {
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             result = resultSet.getInt(1);
-            System.out.println("Success.");
         }
         dbutil.closeDBResource(connection, preparedStatement, resultSet);
         return result;

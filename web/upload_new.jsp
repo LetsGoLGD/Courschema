@@ -22,8 +22,7 @@
         </a>
     </div>
     <div class="w3-bar-item w3-display-right" style="display: flex; align-items:center">
-        <!--TODO: username from backend-->
-        <p class="w3-margin-right"><b>Hello! Username</b></p>
+        <p class="w3-margin-right"><b>Hello!<%=(String)session.getAttribute("username")%></b></p>
         <a href="login.jsp" class="w3-margin-right">
             <!--TODO: do something to stop the login in backend?-->
             <button class="w3-btn w3-white w3-border w3-border-blue w3-round ">Log out</button>

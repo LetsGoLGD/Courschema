@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
         result = userservice.login(username, password);
         PrintWriter out = response.getWriter();
         if (result == 1) {
+            request.getSession().setAttribute("username",username);
             request.getRequestDispatcher("ShowServlet").forward(request, response);
         } else {
             out.println("<script>alert('Username or password is wrong'); window.location='login.jsp' </script>");
