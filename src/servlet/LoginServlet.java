@@ -18,17 +18,13 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        System.out.println(username+" "+password);
         UserService userservice = new UserServiceImpl();
         int result = 0;
         result = userservice.login(username, password);
         PrintWriter out = response.getWriter();
         if (result == 1) {
-            System.out.println("visiting database successfully");
-            request.setAttribute("msg","Sussess.");
-            request.getRequestDispatcher("schema.jsp").forward(request, response);
+            request.getRequestDispatcher("ShowServlet").forward(request, response);
         } else {
-            request.setAttribute("msg", "The username or password is wrong.");
             out.println("<script>alert('Username or password is wrong'); window.location='login.jsp' </script>");
         }
     }

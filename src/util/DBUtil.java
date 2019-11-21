@@ -7,7 +7,7 @@ public class DBUtil {
     public Connection getConnection() throws Exception{
         Connection connection=null;
         String diverClass="org.postgresql.Driver";
-        String url="jdbc:postgresql://localhost:5432/postgres";
+        String url="jdbc:postgresql://localhost:5432/postgres?useUnicode=true&characterEncoding=utf8";
         String name="postgres";
         String password="zycCC988";
         Class.forName(diverClass);

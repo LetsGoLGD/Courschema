@@ -19,14 +19,16 @@ public class ShowServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String year = "";
         String department = "";
-        String searchItem = "";
+        String plan = "";
+        String type = "";
         year = request.getParameter("year");
-        department = request.getParameter("year");
-        searchItem = request.getParameter("year");
+        department = request.getParameter("department");
+        plan = request.getParameter("plan");
+        type = request.getParameter("type");
         ShowService ss = new ShowServiceImpl();
-        List<CourseBean> showCourse = ss.courseList(year,department,searchItem);
+        List<CourseBean> showCourse = ss.courseList(year,department,plan,type);
         request.setAttribute("List",showCourse);
-        request.getRequestDispatcher("page.jsp").forward(request,response);
+        request.getRequestDispatcher("schema.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {

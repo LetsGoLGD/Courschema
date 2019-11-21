@@ -9,10 +9,10 @@ import java.util.List;
 public class ShowServiceImpl implements ShowService{
     ShowDao sd = new ShowDaoImpl();
     @Override
-    public List<CourseBean> courseList(String year, String department, String searchItem) {
+    public List<CourseBean> courseList(String year, String department, String plan,String type) {
         List<CourseBean> cb = null;
         try{
-            cb = sd.showList(year,department,searchItem);
+            cb = sd.showList(year,department,plan,type);
         }catch (Exception e){
             e.printStackTrace();
         }
