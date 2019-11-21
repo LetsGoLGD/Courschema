@@ -48,36 +48,36 @@
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Year</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <!--TODO: ADD link here-->
-                    <a href="#" class="w3-bar-item w3-button">2019</a>
-                    <a href="#" class="w3-bar-item w3-button">2018</a>
-                    <a href="#" class="w3-bar-item w3-button">2017</a>
+                    <a href="ShowServlet?year=" class="w3-bar-item w3-button">All</a>
+                    <a href="ShowServlet?year=2019" class="w3-bar-item w3-button">2019</a>
+                    <a href="ShowServlet?year=2018" class="w3-bar-item w3-button">2018</a>
+                    <a href="ShowServlet?year=2017" class="w3-bar-item w3-button">2017</a>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Major</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <!--TODO: ADD link here-->
-                    <a href="#" class="w3-bar-item w3-button">Computer Science</a>
-                    <a href="#" class="w3-bar-item w3-button">Math</a>
-                    <a href="#" class="w3-bar-item w3-button">Biology</a>
+                    <a href="ShowServlet?department=" class="w3-bar-item w3-button">All</a>
+                    <a href="ShowServlet?department=CS" class="w3-bar-item w3-button">Computer Science</a>
+                    <a href="ShowServlet?department=MA" class="w3-bar-item w3-button">Math</a>
+                    <a href="ShowServlet?department=BO" class="w3-bar-item w3-button">Biology</a>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Plan</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <!--TODO: ADD link here-->
-                    <a href="#" class="w3-bar-item w3-button">1+3</a>
-                    <a href="#" class="w3-bar-item w3-button">2+2</a>
+                    <a href="ShowServlet?plan=" class="w3-bar-item w3-button">All</a>
+                    <a href="ShowServlet?plan=2" class="w3-bar-item w3-button">1+3</a>
+                    <a href="ShowServlet?plan=1" class="w3-bar-item w3-button">2+2</a>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Course Type</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <!--TODO: ADD link here-->
-                    <a href="#" class="w3-bar-item w3-button">elective</a>
-                    <a href="#" class="w3-bar-item w3-button">core</a>
-                    <a href="#" class="w3-bar-item w3-button"></a>
+                    <a href="ShowServlet?type=" class="w3-bar-item w3-button">All</a>
+                    <a href="ShowServlet?type=1" class="w3-bar-item w3-button">Compulsory</a>
+                    <a href="ShowServlet?type=2" class="w3-bar-item w3-button">Elective</a>
+                    <a href="ShowServlet?type=3" class="w3-bar-item w3-button">Core</a>
                 </div>
             </div>
         </div>
@@ -98,20 +98,26 @@
     <table class="w3-table-all w3-centered">
         <tbody>
         <tr>
+            <th>Year</th>
             <th>Course ID</th>
             <th>Course Name</th>
             <th>Credit</th>
             <th>Period</th>
+            <th>Plan</th>
+            <th>Attribute</th>
         </tr>
         <%
             if (list != null && list.size() > 0) {
                 for (int i=0;i<list.size();i++) {
         %>
         <tr>
+            <td><%=list.get(i).getYear()%></td>
             <td><%=list.get(i).getCode()%></td>
             <td><%=list.get(i).getName()%></td>
             <td><%=list.get(i).getCredit() %></td>
             <td><%=list.get(i).getPeriod() %></td>
+            <td><%=list.get(i).getPlanOrder()%></td>
+            <td><%=list.get(i).getAttr()%></td>
 <%--            <td><a href="someServlet?id=<%=list.get(i).getId()%>">Info</a></td>--%>
         </tr>
         <%

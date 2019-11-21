@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,10 +22,18 @@ public class ShowServlet extends HttpServlet {
         String department = "";
         String plan = "";
         String type = "";
-        year = request.getParameter("year");
-        department = request.getParameter("department");
-        plan = request.getParameter("plan");
-        type = request.getParameter("type");
+        year = request.getParameter("year")==null? (String) request.getSession().getAttribute("year")
+                : request.getParameter("year");
+        department = request.getParameter("department")==null? (String) request.getSession().getAttribute("department")
+                : request.getParameter("department");
+        plan = request.getParameter("plan")==null? (String) request.getSession().getAttribute("plan")
+                : request.getParameter("plan");
+        type = request.getParameter("type")==null? (String) request.getSession().getAttribute("type")
+                : request.getParameter("type");
+        request.getSession().setAttribute("year",year);
+        request.getSession().setAttribute("department",department);
+        request.getSession().setAttribute("plan",plan);
+        request.getSession().setAttribute("type",type);
         ShowService ss = new ShowServiceImpl();
         List<CourseBean> showCourse = ss.courseList(year,department,plan,type);
         request.setAttribute("List",showCourse);

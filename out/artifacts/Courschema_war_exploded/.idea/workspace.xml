@@ -22,7 +22,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts/jquery-3.4.1.min.js" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -60,6 +60,8 @@
       <workItem from="1574236495362" duration="1907000" />
       <workItem from="1574238484291" duration="5884000" />
       <workItem from="1574256040110" duration="15903000" />
+      <workItem from="1574314693067" duration="1019000" />
+      <workItem from="1574318754287" duration="6903000" />
     </task>
     <servers />
   </component>
