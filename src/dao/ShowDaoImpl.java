@@ -46,10 +46,22 @@ public class ShowDaoImpl implements ShowDao {
             C.setCredit(resultSet.getInt(4));
             C.setPeriod(resultSet.getInt(5));
             C.setYear(resultSet.getInt(7));
-            C.setPlanOrder(resultSet.getInt(9));
-            C.setAttr(resultSet.getString(12));
+            int order = resultSet.getInt(9);
+            if(order==1){
+                C.setPlanOrder(13);
+            }else{
+                C.setPlanOrder(22);
+            }
+            String attr = resultSet.getString(12);
+            if(attr.equals("1")){
+                C.setAttr("必修");
+            }else if(attr.equals("1")){
+                C.setAttr("选修");
+            }else {
+                C.setAttr("核心");
+            }
             if(C.getCode().contains(department)&&(plan==""||C.getPlanOrder()==Integer.parseInt(plan))
-                    &&(year==""||C.getYear()==Integer.parseInt(year))&&(type==""||C.getAttr().equals(type))){
+                    &&(year==""||C.getYear()==Integer.parseInt(year))&&(type==""||attr.equals(type))){
                 cb.add(C);
             }
         }
