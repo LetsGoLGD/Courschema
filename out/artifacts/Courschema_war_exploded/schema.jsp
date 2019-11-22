@@ -67,8 +67,8 @@
                 <button class="w3-button">Plan</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="ShowServlet?plan=" class="w3-bar-item w3-button">All</a>
-                    <a href="ShowServlet?plan=2" class="w3-bar-item w3-button">1+3</a>
-                    <a href="ShowServlet?plan=1" class="w3-bar-item w3-button">2+2</a>
+                    <a href="ShowServlet?plan=2" class="w3-bar-item w3-button">2+2</a>
+                    <a href="ShowServlet?plan=1" class="w3-bar-item w3-button">1+3</a>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
