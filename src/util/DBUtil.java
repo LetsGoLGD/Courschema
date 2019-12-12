@@ -9,7 +9,7 @@ public class DBUtil {
         String diverClass="org.postgresql.Driver";
         String url="jdbc:postgresql://localhost:5432/postgres?useUnicode=true&characterEncoding=utf8";
         String name="postgres";
-        String password="zycCC988";
+        String password="123456";
         Class.forName(diverClass);
         connection=DriverManager.getConnection(url,name,password);
         return connection;
