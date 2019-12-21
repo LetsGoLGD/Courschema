@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3b77079d-c885-4302-8cf3-ca1731fd65a7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Ts6IsoIMSJBZzNDkvNpOUrmiGH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\css" />
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd" />
+      <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\assert" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
+      <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
+      <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\css" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b77079d-c885-4302-8cf3-ca1731fd65a7" name="Default Changelist" comment="" />
+      <created>1574236378966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574236378966</updated>
+      <workItem from="1574236380107" duration="21000" />
+      <workItem from="1574236495362" duration="1907000" />
+      <workItem from="1574238484291" duration="5884000" />
+      <workItem from="1574256040110" duration="15903000" />
+      <workItem from="1574314693067" duration="1019000" />
+      <workItem from="1574318754287" duration="6903000" />
+      <workItem from="1574326093442" duration="9642000" />
+      <workItem from="1574345390443" duration="2028000" />
+      <workItem from="1574669900964" duration="661000" />
+      <workItem from="1574837965804" duration="673000" />
+      <workItem from="1575378429097" duration="6675000" />
+      <workItem from="1576031394368" duration="3388000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="162" key="SettingsEditor" timestamp="1576051334839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="463" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576051334839" />
+    <state x="645" y="276" key="cloudConfig.SelfSettingsDialog" timestamp="1576069329945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="645" y="276" key="cloudConfig.SelfSettingsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576069329945" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1576054378047">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576054378047" />
+  </component>
+</project>

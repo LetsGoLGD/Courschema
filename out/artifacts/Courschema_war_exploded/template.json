@@ -1,0 +1,85 @@
+{
+  "courses": [
+    {
+      "courseNameEn": "DSAA",
+      "courseNameZh": "数据结构与算法分析",
+      "shortName": "CS203",
+      "credits": 3,
+      "semester": 2,
+      "departmentShortName": "CS",
+      "preCourseGroups": [
+        {
+          "preCourses": [
+            {
+              "name": "Computer introduction",
+              "shortName": "CS101",
+              "id": 10000
+            },
+            {
+              "name": "Computer introduction",
+              "shortName": "CS102",
+              "id": 10000
+            },
+            {
+              "name": "Computer introduction",
+              "shortName": "CS103",
+              "id": 10000
+            }
+          ]
+        },
+        {
+          "preCourses": [
+            {
+              "name": "Computer introduction",
+              "shortName": "CS105",
+              "id": 10000
+            },
+            {
+              "name": "Computer introduction",
+              "shortName": "CS106",
+              "id": 10000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "courseNameEn": "course2",
+      "courseNameZh": "课程二",
+      "shortName": "CS204",
+      "credits": 3,
+      "semester": 2,
+      "departmentShortName": "CS",
+      "preCourseGroups": [
+        {
+          "preCourses": [
+            {
+              "name": "Computer introduction",
+              "shortName": "CS102",
+              "id": 10000
+            },
+            {
+              "name": "Computer introduction",
+              "shortName": "CS103",
+              "id": 10000
+            }
+          ]
+        },
+        {
+          "preCourses": [
+            {
+              "name": "Computer introduction",
+              "shortName": "CS105",
+              "id": 10000
+            },
+            {
+              "name": "Computer introduction",
+              "shortName": "CS106",
+              "id": 10000
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
