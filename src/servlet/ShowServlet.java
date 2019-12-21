@@ -28,14 +28,12 @@ public class ShowServlet extends HttpServlet {
                 : request.getParameter("department");
         plan = request.getParameter("plan")==null? (String) request.getSession().getAttribute("plan")
                 : request.getParameter("plan");
-        type = request.getParameter("type")==null? (String) request.getSession().getAttribute("type")
-                : request.getParameter("type");
         request.getSession().setAttribute("year",year);
         request.getSession().setAttribute("department",department);
         request.getSession().setAttribute("plan",plan);
-        request.getSession().setAttribute("type",type);
         ShowService ss = new ShowServiceImpl();
-        List<CourseBean> showCourse = ss.courseList(year,department,plan,type);
+        System.out.println(year+department+plan+type);
+        List<CourseBean> showCourse = ss.courseList(year,department,plan);
         request.setAttribute("List",showCourse);
         request.getRequestDispatcher("schema.jsp").forward(request,response);
     }

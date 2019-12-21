@@ -9,6 +9,24 @@ public class CourseBean {
     private int planOrder;
     private String attr;
     private int year;
+    private String major;
+    private String ad_year;
+
+    public String getAd_year() {
+        return ad_year;
+    }
+
+    public void setAd_year(String ad_year) {
+        this.ad_year = ad_year;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
 
     public int getYear() {
         return year;

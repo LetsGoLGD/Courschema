@@ -1,3 +1,5 @@
+<%@ page import="bean.CourseBean" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -43,7 +45,7 @@
 
 
 <div style="margin-left:20%; margin-top:80px;margin-right:20%">
-
+    <form action="ShowServlet" method="post">
     <div>
         <div class="w3-left w3-margin">
             <select class="w3-select" name="year">
@@ -59,23 +61,26 @@
         <div class="w3-left w3-margin">
             <select class="w3-select" name="plan">
                 <option disabled selected>--</option>
-                <option value="2+2">2+2</option>
-                <option value="1+3">1+3</option>
+                <option value="22">2+2</option>
+                <option value="13">1+3</option>
             </select>
         </div>
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="department">
                 <option disabled selected>--</option>
-<!--                Add from database-->
-                <option value="0"></option>
-                <option value="1"></option>
+                <option value="CS"></option>
+                <option value="MA"></option>
+                <option value="BO"></option>
+                <option value="EL"></option>
+                <option value="PH"></option>
+                <option value="FI"></option>
             </select>
         </div>
 
         <div class="w3-left w3-margin">
             <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
-            <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
+            <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
                 <span>Submit</span>
             </button>
         </div>
@@ -83,6 +88,10 @@
 
 
     </div>
+    </form>
+    <%
+        List<CourseBean> list = (List<CourseBean>) request.getAttribute("List");
+    %>
     <table class="tablesorter w3-centered" id="schemaTable">
         <thead>
         <!--TODO: connect with database-->
@@ -91,124 +100,33 @@
             <th>Course ID</th>
             <th>Credits</th>
             <th>Recommend Semester</th>
-            <th>Department</th>
+            <th>Course department</th>
         </tr>
         </thead>
         <tbody>
+        <%
+            if (list != null && list.size() > 0) {
+                for (int i=0;i<list.size();i++) {
+        %>
         <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
+            <td><%=list.get(i).getName()%></td>
+            <td><%=list.get(i).getCode()%></td>
+            <td><%=list.get(i).getCredit() %></td>
+            <td><%=list.get(i).getAd_year() %></td>
+            <td><%=list.get(i).getMajor() %></td>
         </tr>
+        <%
+            }
+        } else {
+        %>
         <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
+            <td colspan="6">can not get infomation</td>
         </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
-        <tr>
-            <td>OOAD</td>
-            <td>CS309</td>
-            <td>3</td>
-            <td>5</td>
-            <td>Computer Science</td>
-        </tr>
+        <%
+            }
+        %>
         </tbody>
     </table>
-    <!--    <div class="w3-border w3-display-right w3-margin" style="width: 17%;">-->
-    <!--        <h3 class="w3-tag w3-round w3-green w3-border w3-border-white">Falcon Ridge Parkway</h3>-->
-    <!--        <div class="w3-panel w3-yellow w3-topbar w3-bottombar w3-border-amber">-->
-    <!--            <p>London is the most populous city in the United Kingdom,-->
-    <!--                with a metropolitan area of over 9 million inhabitants.</p>-->
-    <!--        </div>-->
-    <!--    </div>-->
 </div>
 
 
