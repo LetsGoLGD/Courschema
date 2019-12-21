@@ -27,6 +27,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>SelfInfoServlet</servlet-name>
+        <servlet-class>servlet.SelfInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelfInfoServlet</servlet-name>
+        <url-pattern>/SelfInfoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>UpdateServlet</servlet-name>
         <servlet-class>servlet.UpdateServlet</servlet-class>
     </servlet>

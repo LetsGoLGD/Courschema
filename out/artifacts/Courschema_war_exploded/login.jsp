@@ -15,35 +15,35 @@
 </head>
 <body>
 <form action="LoginServlet" method="post">
-<div class="w3-bar w3-teal w3-display-container">
-    <div class="w3-bar-item ">
-        <a href="https://www.sustech.edu.cn/">
-            <img src="assert/schoolLogo.png" alt="SUSTech" style="height: 80px;">
-        </a>
-    </div>
-</div>
-
-<div id="main">
-    <form name="form1">
-        <div class="w3-display-topmiddle w3-center" style="margin-top: 100px;">
-            <img src="assert/schoolLogo2.png" alt="SUSTech">
-            <div class="input-container">
-                <input type="text" id="input" placeholder="text" name="username">
-                <label for="input">Username</label>
-                <div class="bottom-line"></div>
-            </div>
-
-            <div class="input-container">
-                <input type="password" id="input2" placeholder="password" name="password">
-                <label for="input2">Password</label>
-                <div class="bottom-line"></div>
-            </div>
-            <div id ="btn">
-                <input type="submit" id="add" value="Login"><br>
-            </div>
+    <div class="w3-bar w3-teal w3-display-container">
+        <div class="w3-bar-item ">
+            <a href="https://www.sustech.edu.cn/">
+                <img src="assert/schoolLogo.png" alt="SUSTech" style="height: 80px;">
+            </a>
         </div>
-    </form>
-</div>
+    </div>
+
+    <div id="main">
+        <form name="form1">
+            <div class="w3-display-topmiddle w3-center" style="margin-top: 100px;">
+                <img src="assert/schoolLogo2.png" alt="SUSTech">
+                <div class="input-container">
+                    <input type="text" id="input" placeholder="text" name="username">
+                    <label for="input">Username</label>
+                    <div class="bottom-line"></div>
+                </div>
+
+                <div class="input-container">
+                    <input type="password" id="input2" placeholder="password" name="password">
+                    <label for="input2">Password</label>
+                    <div class="bottom-line"></div>
+                </div>
+                <div id ="btn">
+                    <input type="submit" id="add" value="Login"><br>
+                </div>
+            </div>
+        </form>
+    </div>
 </form>
 <div class="w3-display-topmiddle w3-center" style="margin-top: 640px;">
     <div id="btn2">
@@ -83,7 +83,7 @@
                     <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" type="text" placeholder="Enter code">
                     <label><b>New Password</b></label>
                     <input class="w3-input w3-border w3-hover-border-black" type="text" placeholder="Enter Password">
-                    <button onclick="onClickChangePassword()" class="w3-btn w3-btn-block w3-green w3-section">Change Password</button>
+                    <button onclick="" class="w3-btn w3-btn-block w3-green w3-section">Change Password</button>
                 </form>
             </div>
         </div>

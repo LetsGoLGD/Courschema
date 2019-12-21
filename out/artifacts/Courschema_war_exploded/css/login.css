@@ -92,12 +92,6 @@
     margin: 20px auto 0
 }
 
-#btn2{
-    text-align: center;
-    margin: 20px auto 0
-}
-
-
 #add {
     /* 文字颜色 */
     color: #0099CC;
@@ -121,7 +115,6 @@
     text-decoration: none;
     /*text-transform: uppercase;*/
 }
-
 #add {
     background-color: white;
     color: black;
@@ -131,3 +124,5 @@
     background-color: #008CBA;
     color: white;
 }
+
+
