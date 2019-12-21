@@ -35,6 +35,7 @@
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
     <h3 class="w3-bar-item">Menu</h3>
     <button onclick="$('#mySidebar').hide()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="self_info.jsp" class="w3-bar-item w3-button">Self Info</a>
     <a href="ShowServlet" class="w3-bar-item w3-button">Course Schema</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
     <a href="course.jsp" class="w3-bar-item w3-button">Adjust Course Schema</a>
@@ -52,12 +53,12 @@
         </div>
 
         <div class="info">
-            <span id="name">Name: </span><br/>
-            <span id="uid">UID: </span><br/>
-            <span id="gender">Gender: </span><br/>
-            <span id="grade">Grade: </span><br/>
-            <span id="major">Major: </span><br/>
-            <span id="college">College: </span>
+            Name: <%=(String)session.getAttribute("name")%><br/>
+            UID: <%=(String)session.getAttribute("id")%><br/>
+            Gender: <%=(String)session.getAttribute("gender")%><br/>
+            Grade: <%=(String)session.getAttribute("stu_year")%><br/>
+            Major: <%=(String)session.getAttribute("major")%><br/>
+            Mail: <%=(String)session.getAttribute("mail")%>
         </div>
     </div>
     <div id="block2">

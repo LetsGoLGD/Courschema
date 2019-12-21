@@ -5,6 +5,33 @@ public class UserBean {
     private String name;
     private String department;
     private String password;
+    private String gender;
+    private String grade;
+    private String mail;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
     public int getId() {
         return id;

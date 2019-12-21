@@ -22,7 +22,7 @@
     </div>
     <div class="w3-bar-item w3-display-right" style="display: flex; align-items:center">
         <!--TODO: username from backend-->
-        <p class="w3-margin-right"><b>Hello! Username</b></p>
+        <p class="w3-margin-right"><b>Hello!<%=(String)session.getAttribute("username")%></b></p>
         <a href="login.jsp" class="w3-margin-right">
             <!--TODO: do something to stop the login in backend?-->
             <button class="w3-btn w3-white w3-border w3-border-blue w3-round ">Log out</button>
@@ -35,6 +35,7 @@
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
     <h3 class="w3-bar-item">Menu</h3>
     <button onclick="$('#mySidebar').hide()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="self_info.jsp" class="w3-bar-item w3-button">Self Info</a>
     <a href="schema.jsp" class="w3-bar-item w3-button">Course Schema</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
     <a href="course.jsp" class="w3-bar-item w3-button">Adjust Course Schema</a>
@@ -49,7 +50,8 @@
     <div>
         <div class="w3-left w3-margin">
             <select class="w3-select" name="year">
-                <option disabled selected>--</option>
+                <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
+                        (String) request.getSession().getAttribute("year"):"--"%></option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
                 <option value="2017">2017</option>
@@ -60,7 +62,9 @@
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="plan">
-                <option disabled selected>--</option>
+                <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
+                        (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
+                        +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
                 <option value="22">2+2</option>
                 <option value="13">1+3</option>
             </select>
@@ -68,13 +72,14 @@
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="department">
-                <option disabled selected>--</option>
-                <option value="CS"></option>
-                <option value="MA"></option>
-                <option value="BO"></option>
-                <option value="EL"></option>
-                <option value="PH"></option>
-                <option value="FI"></option>
+                <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
+                        (String) request.getSession().getAttribute("department"):"--"%></option>
+                <option value="CS">CS</option>
+                <option value="MA">MA</option>
+                <option value="BO">BO</option>
+                <option value="EL">EL</option>
+                <option value="PH">PH</option>
+                <option value="FI">FI</option>
             </select>
         </div>
 

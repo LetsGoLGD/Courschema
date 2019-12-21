@@ -35,6 +35,7 @@
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
     <h3 class="w3-bar-item">Menu</h3>
     <button onclick="$('#mySidebar').hide()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="self_info.jsp" class="w3-bar-item w3-button">Self Info</a>
     <a href="ShowServlet" class="w3-bar-item w3-button">Course Schema</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
     <a href="course.jsp" class="w3-bar-item w3-button">Adjust Course Schema</a>
