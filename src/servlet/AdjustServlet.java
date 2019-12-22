@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ShowServlet")
-public class ShowServlet extends HttpServlet {
+@WebServlet(name = "AdjustServlet")
+public class AdjustServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String year = "";
         String department = "";
@@ -33,7 +33,7 @@ public class ShowServlet extends HttpServlet {
         ShowService ss = new ShowServiceImpl();
         List<CourseBean> showCourse = ss.courseList(year,department,plan);
         request.setAttribute("List",showCourse);
-        request.getRequestDispatcher("schema.jsp").forward(request,response);
+        request.getRequestDispatcher("edit.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {

@@ -35,17 +35,34 @@ public class ShowDaoImpl implements ShowDao {
                 "from course c\n" +
                 "       join plan_course p on c.id_course = p.id_course\n" +
                 "      join schema_plan sp on p.id_plan = sp.id_auto\n" +
-                "      join major m on c.open_major = m.id_major\n" +
+                "  join major m on c.open_major = m.id_major\n" +
+                "left join pre_course pc on c.id_course = pc.id_course\n" +
+                "left join course c2 on c2.id_course = pc.pre_course_id\n" +
                 "order by c.abbr_course;";
         preparedStatement=connection.prepareStatement(sql);
         resultSet=preparedStatement.executeQuery();
         cb=new ArrayList<CourseBean>();
+        String last = "";
+        int indexOfDupli = 0;
+        int cnt = 0;
         while (resultSet.next()){
             CourseBean C = new CourseBean();
             C.setId(resultSet.getInt(1));
             C.setMajor(resultSet.getString(19));
             C.setName(resultSet.getString(2));
-            C.setCode(resultSet.getString(3));
+            String code = resultSet.getString(3);
+            C.setCode(code);
+            if(last.equals(code)){
+                String tmp = cb.get(indexOfDupli).getPre();
+                tmp = tmp + "," + resultSet.getString(24);
+                cb.get(indexOfDupli).setPre(tmp);
+                continue;
+            }else {
+                indexOfDupli = cnt;
+            }
+            C.setPre(resultSet.getString(24)==null?"无":resultSet.getString(24));
+            last = code;
+            cnt++;
             C.setCredit(resultSet.getInt(9));
             C.setPeriod(resultSet.getInt(10)*16);
             C.setYear(resultSet.getInt(14));
@@ -95,6 +112,25 @@ public class ShowDaoImpl implements ShowDao {
             }else {
                 C.setAttr("核心");
             }
+            String open_tim = "";
+            switch (resultSet.getInt(5)){
+                case 1:
+                    open_tim = "秋";
+                    break;
+                case 2:
+                    open_tim = "春";
+                    break;
+                case 3:
+                    open_tim = "春秋";
+                    break;
+                case 4:
+                    open_tim = "小学期";
+                    break;
+                default:
+                    open_tim = "任意";
+                    break;
+            }
+            C.setOpen_time(open_tim);
             if(C.getCode().contains(department)&&(plan==""||C.getPlanOrder()==Integer.parseInt(plan))
                     &&(year==""||C.getYear()==Integer.parseInt(year))){
                 cb.add(C);

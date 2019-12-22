@@ -1,3 +1,5 @@
+<%@ page import="bean.CourseBean" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -33,28 +35,25 @@
 
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-    <h3 class="w3-bar-item">Menu</h3>
-    <button onclick="$('#mySidebar').hide()" class="w3-bar-item w3-large">Close &times;</button>
-    <a href="self_info.jsp" class="w3-bar-item w3-button">Self Info</a>
-    <a href="ShowServlet" class="w3-bar-item w3-button">Course Schema</a>
+    <h3 class="w3-bar-item">菜单</h3>
+    <button onclick="$('#mySidebar').hide()" class="w3-bar-item w3-large">关闭 &times;</button>
+    <a href="self_info.jsp" class="w3-bar-item w3-button">个人资料</a>
+    <a href="ShowServlet" class="w3-bar-item w3-button">查看培养方案</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
-    <a href="course.jsp" class="w3-bar-item w3-button">Adjust Course Schema</a>
-    <a href="upload_f.jsp" class="w3-bar-item w3-button">Upload</a>
+    <a href="AdjustServlet" class="w3-bar-item w3-button">修改培养方案</a>
+    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>
     <!--TODO: Q&A model to add-->
-    <a href="#" class="w3-bar-item w3-button">Q&A</a>
+    <a href="#" class="w3-bar-item w3-button">论坛</a>
 </div>
 
 
 <div style="margin-left:10%; margin-top:80px;margin-right:10%">
-    <!--    <div class="w3-bar w3-teal w3-center">-->
-    <!--        <a class="w3-bar-item w3-button w3-xlarge" id="uploadByForm">Upload by Form</a>-->
-    <!--        <a class="w3-bar-item w3-button w3-xlarge" id="uploadByFile">Upload by File</a>-->
-
-    <!--    </div>-->
     <div>
+        <form action="AdjustServlet" method="post">
         <div class="w3-left w3-margin">
             <select class="w3-select" name="year">
-                <option disabled selected>--</option>
+                <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
+                        (String) request.getSession().getAttribute("year"):"--"%></option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
                 <option value="2017">2017</option>
@@ -65,27 +64,34 @@
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="plan">
-                <option disabled selected>--</option>
-                <option value="2+2">2+2</option>
-                <option value="1+3">1+3</option>
+                <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
+                        (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
+                                +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
+                <option value="22">2+2</option>
+                <option value="13">1+3</option>
             </select>
         </div>
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="department">
-                <option disabled selected>--</option>
-<!--                Add from database-->
-                <option value="0"></option>
-                <option value="1"></option>
+                <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
+                        (String) request.getSession().getAttribute("department"):"--"%></option>
+                <option value="CS">CS</option>
+                <option value="MA">MA</option>
+                <option value="BO">BO</option>
+                <option value="EL">EL</option>
+                <option value="PH">PH</option>
+                <option value="FI">FI</option>
             </select>
         </div>
 
         <div class="w3-left w3-margin">
             <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
-            <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
+            <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
                 <span>Submit</span>
             </button>
         </div>
+        </form>
 
 
         <div class="w3-right">
@@ -98,7 +104,7 @@
     <div class="w3-container">
 
         <table id="courseTable" class="w3-margin w3-table-all w3-centered">
-            <tbody>
+            <thead>
             <tr>
                 <th>课程名</th>
                 <th>学分</th>
@@ -108,6 +114,30 @@
                 <th>删除</th>
                 <th>修改</th>
             </tr>
+            </thead>
+            <tbody>
+            <%
+                List<CourseBean> list = (List<CourseBean>) request.getAttribute("List");
+                if (list != null && list.size() > 0) {
+                    for (int i=0;i<list.size();i++) {
+            %>
+            <tr>
+                <td><%=list.get(i).getName()+"("+list.get(i).getCode()+")"%></td>
+                <td><%=list.get(i).getCredit() %></td>
+                <td><%=list.get(i).getOpen_time() %></td>
+                <td><%=list.get(i).getMajor() %></td>
+                <td><%=list.get(i).getPre() %></td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="6">can not get infomation</td>
+            </tr>
+            <%
+                }
+            %>
             </tbody>
         </table>
 

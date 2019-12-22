@@ -44,4 +44,12 @@
         <url-pattern>/UpdateServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdjustServlet</servlet-name>
+        <servlet-class>servlet.AdjustServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdjustServlet</servlet-name>
+        <url-pattern>/AdjustServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

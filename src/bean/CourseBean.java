@@ -11,6 +11,24 @@ public class CourseBean {
     private int year;
     private String major;
     private String ad_year;
+    private String open_time;
+    private String pre;
+
+    public String getPre() {
+        return pre;
+    }
+
+    public void setPre(String pre) {
+        this.pre = pre;
+    }
+
+    public String getOpen_time() {
+        return open_time;
+    }
+
+    public void setOpen_time(String open_time) {
+        this.open_time = open_time;
+    }
 
     public String getAd_year() {
         return ad_year;
