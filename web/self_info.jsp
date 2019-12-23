@@ -45,7 +45,7 @@
 </div>
 
 
-<div style="margin-left:20%; margin-top:60px;margin-right:20%">
+<div style="margin-left:10%; margin-top:60px;margin-right:10%">
     <div id="block1">
         <div class="info">
             <img class="img" src="assert/self1.png">
@@ -68,6 +68,15 @@
         </div>
 
         <div id="course">
+        </div>
+    </div>
+    <div id="block3">
+        <div class="info">
+            <img class="img" src="assert/self3.png" >
+            <div>Bulletin Board</div>
+        </div>
+
+        <div id="board">
         </div>
     </div>
 

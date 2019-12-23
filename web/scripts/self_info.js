@@ -6,6 +6,7 @@ function load()	{
     let major = document.getElementById("major");
     let college = document.getElementById("college");
     let course = document.getElementById("course");
+    let board = document.getElementById("board");
 
     name.innerHTML = "Name: ";
     uid.innerHTML = "UID: ";
@@ -19,4 +20,9 @@ function load()	{
     newCourse.innerHTML = "OOAD";
     course.appendChild(newCourse);
     //添加修过的课程，套个for循环就行
+
+    let newNotice = document.createElement("span");
+    newNotice.innerHTML = "Added course OOAD";
+    board.appendChild(newNotice);
+    //添加公告，套个for循环就行
 }
