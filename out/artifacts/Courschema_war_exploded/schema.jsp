@@ -49,8 +49,7 @@
     <div>
         <div class="w3-left w3-margin">
             <select class="w3-select" name="year">
-                <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
-                        (String) request.getSession().getAttribute("year"):"--"%></option>
+                <option disabled selected>--</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
                 <option value="2017">2017</option>
@@ -61,9 +60,7 @@
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="plan">
-                <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
-                        (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
-                        +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
+                <option disabled selected>--</option>
                 <option value="22">2+2</option>
                 <option value="13">1+3</option>
             </select>
@@ -71,8 +68,7 @@
 
         <div class="w3-left w3-margin">
             <select class="w3-select" name="department">
-                <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
-                        (String) request.getSession().getAttribute("department"):"--"%></option>
+                <option disabled selected>--</option>
                 <option value="CS">CS</option>
                 <option value="MA">MA</option>
                 <option value="BO">BO</option>
