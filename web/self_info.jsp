@@ -69,15 +69,6 @@
             </div>
 
             <div id="course">
-            </div>
-        </div>
-        <div id="block3">
-            <div class="info">
-                <img class="img" src="assert/self3.png" >
-                <div>Bulletin Board</div>
-            </div>
-
-            <div id="board">
                 <%
                     String [] abbr_name = (String[]) session.getAttribute("abbr_name");
                     String [] course_name = (String[]) session.getAttribute("course_name");
@@ -87,6 +78,16 @@
                 <%
                     }
                 %>
+            </div>
+        </div>
+        <div id="block3">
+            <div class="info">
+                <img class="img" src="assert/self3.png" >
+                <div>Bulletin Board</div>
+            </div>
+
+            <div id="board">
+
             </div>
         </div>
     </div>
