@@ -35,8 +35,6 @@ public class DeleteServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        PrintWriter out = response.getWriter();
-        out.println("<script>alert('已删除。'); window.location='DeleteServlet' </script>");
         request.getRequestDispatcher("AdjustServlet").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
