@@ -128,8 +128,8 @@ function onClickAddReply() {
 
 function getReplyContent(user, content) {
     return "<p><strong>" + user + "</strong></p>" +
-    "<p>" + content + "</p>" +
-    "<hr>";
+        "<p>" + content + "</p>" +
+        "<hr>";
 }
 
 function onClickOpenPost(topicId) {

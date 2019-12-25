@@ -43,7 +43,7 @@
     <a href="AdjustServlet" class="w3-bar-item w3-button">修改培养方案</a>
     <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>
     <!--TODO: Q&A model to add-->
-    <a href="#" class="w3-bar-item w3-button">论坛</a>
+    <a href="PostServlet" class="w3-bar-item w3-button">论坛</a>
 </div>
 
 
