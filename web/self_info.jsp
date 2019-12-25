@@ -29,7 +29,7 @@
         </a>
     </div>
 </div>
-<button class="w3-button w3-left w3-xlarge" onclick="$('#mySidebar').show()">☰</button>
+<button class="w3-button w3-left w3-xlarge" onclick="$('#mySidebar').show()" id="btn">☰</button>
 
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
