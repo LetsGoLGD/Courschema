@@ -31,7 +31,12 @@ public class ShowServlet extends HttpServlet {
         request.getSession().setAttribute("department",department);
         request.getSession().setAttribute("plan",plan);
         ShowService ss = new ShowServiceImpl();
-        List<CourseBean> showCourse = ss.courseList(year,department,plan);
+        List<CourseBean> showCourse = null;
+        if(year!=null&&department!=null&&plan!=null){
+            showCourse = ss.courseList(year,department,plan);
+        }else{
+           showCourse = ss.courseList(null,null,null);
+        }
         request.setAttribute("List",showCourse);
         request.getRequestDispatcher("schema.jsp").forward(request,response);
     }

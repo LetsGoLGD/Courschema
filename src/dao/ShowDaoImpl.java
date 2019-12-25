@@ -20,18 +20,66 @@ public class ShowDaoImpl implements ShowDao {
     ResultSetMetaData metaData = null;
     @Override
     public List<CourseBean> showList(String year, String department, String plan) throws Exception {
+        int d = 0;
+        int p = 0;
+        int y = 0;
         if(department==null){
             department = "";
+        }else {
+            switch (department){
+                case "CS":
+                    d = 1;
+                    break;
+                case "FI":
+                    d = 2;
+                    break;
+                case "PH":
+                    d = 3;
+                    break;
+                case "MA":
+                    d = 4;
+                    break;
+                case "BI":
+                    d = 5;
+                    break;
+                case "EL":
+                    d = 6;
+                    break;
+            }
         }
         if(plan==null){
             plan = "";
+        }else{
+            switch (plan){
+                case "22":
+                    p = 2;
+                    break;
+                case "13":
+                    p = 1;
+                    break;
+            }
         }
         if(year==null){
             year = "";
+        }else{
+            switch (year){
+                case "2016":
+                    y = 2016;
+                    break;
+                case "2017":
+                    y = 2017;
+                    break;
+                case "2018":
+                    y = 2018;
+                    break;
+                case "2019":
+                    y = 2019;
+                    break;
+            }
         }
         List<CourseBean> cb = null;
         connection = dbutil.getConnection();
-        String sql="select c.id_course,c.abbr_course,m.name_major,pc.name_course,sp.year,pc.inter_year,pc.adivse_semster,c.open_time,pc.score_course,pc.inter_year,pc.group_message\n" +
+        String sql="select c.id_course,c.abbr_course,m.name_major,pc.name_course,sp.year,pc.inter_year,pc.adivse_semster,c.open_time,pc.score_course,pc.inter_year,pc.group_message,pc.id_plan\n" +
                 "from course c join plan_course pc on c.id_course = pc.id_course\n" +
                 "    join schema_plan sp on pc.id_plan = sp.id_auto\n" +
                 "join major m on c.open_major = m.id_major\n" +
@@ -120,8 +168,23 @@ public class ShowDaoImpl implements ShowDao {
                 pre = "无";
             }
             C.setPre(pre);
-            if(C.getCode().contains(department)&&(plan==""||C.getPlanOrder()==Integer.parseInt(plan))
-                    &&(year==""||C.getYear()==Integer.parseInt(year))){
+            int id_plan = resultSet.getInt(12);
+            if(y*d*p!=0){
+                sql = "select * from schema_plan sp join plan_course pc on sp.id_auto = pc.id_plan\n" +
+                        "where sp.year=? and sp.inter_year = ?  and sp.major_schema = ?;";
+                PreparedStatement preparedStatement3=connection.prepareStatement(sql);
+                preparedStatement3.setInt(1,y);
+                preparedStatement3.setInt(2,p);
+                preparedStatement3.setInt(3,d);
+                ResultSet resultSet3=preparedStatement3.executeQuery();
+                int num = 0;
+                if(resultSet3.next()){
+                    num = resultSet3.getInt(1);
+                }
+                if(num==id_plan){
+                    cb.add(C);
+                }
+            }else {
                 cb.add(C);
             }
         }

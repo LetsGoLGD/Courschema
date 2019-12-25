@@ -164,7 +164,6 @@
                                 <option disabled selected>--</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
-                                <option value="1.5">1.5</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -174,16 +173,21 @@
                             开课学期:
                             <select class="w3-select" name="semester" id="semester">
                                 <option disabled selected>--</option>
-                                <option value="春">春</option>
-                                <option value="秋">秋</option>
-                                <option value="秋/春">秋/春</option>
+                                <option value="1">春</option>
+                                <option value="2">秋</option>
+                                <option value="3">秋/春</option>
                             </select>
                         </div>
                         <div class="w3-margin">
                             开课院系:
                             <select class="w3-select" name="department" id="department">
                                 <option disabled selected>--</option>
-                                <!--TODO: 后端返回数据填充-->
+                                <option value="1">计算机系</option>
+                                <option value="2">金融系</option>
+                                <option value="3">物理系</option>
+                                <option value="4">数学系</option>
+                                <option value="5">生物系</option>
+                                <option value="6">电子系</option>
                             </select>
                         </div>
 
@@ -214,7 +218,6 @@
                                 <td>先修课1</td>
                                 <td>先修课2</td>
                                 <td>先修课3</td>
-<!--                                <td>先修课4</td>-->
                             </tr>
                             </thead>
                             <tbody></tbody>
