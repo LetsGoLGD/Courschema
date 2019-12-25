@@ -47,13 +47,12 @@
 </div>
 
 
-<div style="margin-left:10%; margin-top:80px;margin-right:10%">
+<div style="margin-left:20%; margin-top:80px;margin-right:20%">
     <div>
         <form action="AdjustServlet" method="post">
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="year" id="yearSelector">
-                    <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
-                            (String) request.getSession().getAttribute("year"):"--"%></option>
+                    <option disabled selected>--</option>
                     <option value="2019">2019</option>
                     <option value="2018">2018</option>
                     <option value="2017">2017</option>
@@ -64,9 +63,7 @@
 
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="plan" id="planSelector">
-                    <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
-                            (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
-                                    +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
+                    <option disabled selected>--</option>
                     <option value="22">2+2</option>
                     <option value="13">1+3</option>
                 </select>
@@ -74,8 +71,7 @@
 
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="department" id="departmentSelector">
-                    <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
-                            (String) request.getSession().getAttribute("department"):"--"%></option>
+                    <option disabled selected>--</option>
                     <option value="CS">CS</option>
                     <option value="MA">MA</option>
                     <option value="BO">BO</option>
@@ -184,9 +180,14 @@
                         </div>
                         <div class="w3-margin">
                             开课院系:
-                            <select class="w3-select" name="semester">
+                            <select class="w3-select" name="major">
                                 <option disabled selected>--</option>
-                                <!--TODO: 后端返回数据填充-->
+                                <option value="1">计算机系</option>
+                                <option value="2">金融系</option>
+                                <option value="3">物理系</option>
+                                <option value="4">数学系</option>
+                                <option value="5">生物系</option>
+                                <option value="6">电子系</option>
                             </select>
                         </div>
 
