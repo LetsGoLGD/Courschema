@@ -74,7 +74,7 @@
         <div id="block3">
             <div class="info">
                 <img class="img" src="assert/self3.png" >
-                <div>Bulletin Board</div>
+                <div onclick="board()">Bulletin Board</div>
             </div>
 
             <div id="board">
