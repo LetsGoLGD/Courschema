@@ -57,10 +57,10 @@
     <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
         <div class="w3-container">
             <div class="w3-section">
-                <form target="iframe">
-                    <label><b>Email Address</b></label>
-                    <input name="email-address" class="w3-input w3-border w3-hover-border-black" type="text" placeholder="Enter Email">
-                    <button onclick="onClickSendEmail()" class="w3-btn w3-btn-block w3-green w3-section w3-margin-bottom">Send Email</button><br>
+                <form target="iframe" action="MailServlet" method="post">
+                    <label><b>邮箱地址：</b></label>
+                    <input name="email-address" class="w3-input w3-border w3-hover-border-black" type="text" placeholder="请输入邮箱">
+                    <button type="submit" class="w3-btn w3-btn-block w3-green w3-section w3-margin-bottom">发送邮件</button><br>
                 </form>
                 <iframe id="iframe" name="iframe" style="display:none;"></iframe>
             </div>

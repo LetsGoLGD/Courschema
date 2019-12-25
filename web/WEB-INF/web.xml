@@ -70,4 +70,13 @@
         <servlet-name>AddServlet</servlet-name>
         <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MailServlet</servlet-name>
+        <servlet-class>servlet.MailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MailServlet</servlet-name>
+        <url-pattern>/MailServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
