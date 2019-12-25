@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+    <!--    <link rel="stylesheet" type="text/css" href="css/upload.css"/>-->
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/bbs.js"></script>
+    <script src="scripts/jquery.tabletojson.min.js"></script>
+    <script src="scripts/xlsx.full.min.js"></script>
+    <!--    <script src="/scripts/jBox.all.min.js"></script>-->
+    <!--    <link href="/css/jBox.all.min.css" rel="stylesheet">-->
+    <script src="scripts/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/w32.css">
+</head>
+
+<body>
+<div class="w3-bar w3-teal w3-display-container">
+    <div class="w3-bar-item ">
+        <a href="https://www.sustech.edu.cn/">
+            <img src="assert/schoolLogo.png" alt="SUSTech" style="height: 80px;">
+        </a>
+    </div>
+    <div class="w3-bar-item w3-display-right" style="display: flex; align-items:center">
+        <!--TODO: username from backend-->
+        <p class="w3-margin-right"><b>Hello! Username</b></p>
+        <a href="login.jsp" class="w3-margin-right">
+            <!--TODO: do something to stop the login in backend?-->
+            <button class="w3-btn w3-white w3-border w3-border-blue w3-round ">Log out</button>
+        </a>
+    </div>
+</div>
+<button class="w3-button w3-left w3-xlarge" onclick="$('#mySidebar').show()">☰</button>
+
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <h3 class="w3-bar-item">Menu</h3>
+    <button onclick="$('#mySidebar').hide()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="schema.html" class="w3-bar-item w3-button">Course Schema</a>
+    <!--TODO: if current login is not admin, ask to login as admin-->
+    <a href="course.html" class="w3-bar-item w3-button">Adjust Course Schema</a>
+    <a href="upload.html" class="w3-bar-item w3-button">Upload</a>
+    <!--TODO: Q&A model to add-->
+    <a href="#" class="w3-bar-item w3-button">Q&A</a>
+</div>
+<div style="margin-left:10%; margin-top:80px;margin-right:10%">
+    <div>
+        <ul class="w3-navbar w3-card-2 w3-border w3-light-grey">
+            <li onclick="onClickAll()"><a class="w3-green" id="all">所有</a></li>
+            <li onclick="onClickCourse()"><a id="courseArr">课程安排</a></li>
+            <li onclick="onClickSchema()"><a id="schema">培养方案</a></li>
+            <li onclick="onClickWater()"><a id="water">水贴</a></li>
+            <li onclick="onClickSelf()"><a id="self">我的帖子</a></li>
+            <li onclick="$('#formWindow').show()" class="w3-right"><a><strong>发帖</strong></a></li>
+        </ul>
+
+        <div class="w3-modal" id="formWindow">
+            <div class="w3-modal-content w3-animate-bottom">
+                <div class="w3-container w3-teal">
+                    <h2>发帖</h2>
+                    <span onclick="$('#formWindow').hide()"
+                          class="w3-button w3-xlarge w3-hover-red w3-display-topright w3-teal" style="position: absolute;top: 7%;transform: translateY(-50%);">&times;</span>
+                </div>
+                <form class="w3-container w3-card-4" name="post">
+                    <br>
+                    <p>
+                        <label class="w3-text-grey">标题</label>
+                        <input class="w3-input" type="text" id="title">
+                    </p>
+                    <p>
+                        <label class="w3-text-grey">类别</label>
+                    </p>
+                    <div class="w3-row">
+                        <div class="w3-half">
+                            <input class="w3-radio" type="radio" name="group" value="课程安排" checked="">
+                            <label class="w3-validate">课程安排</label>
+                            <input class="w3-radio" type="radio" name="group" value="培养方案">
+                            <label class="w3-validate">培养方案</label>
+                            <input class="w3-radio" type="radio" name="group" value="水贴">
+                            <label class="w3-validate">水贴</label>
+                        </div>
+                    </div>
+                    <br>
+                    <p>
+                        <label class="w3-text-grey">内容</label>
+                        <textarea class="w3-input" style="resize:none" spellcheck="false" id="content"></textarea>
+                    </p>
+                    <p>
+                        <button type="button" onclick="submitPost()" class="w3-btn w3-padding w3-teal" style="width:120px"><strong>发布</strong> &nbsp; ❯</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:20px">
+<!--        TODO:Get post from database-->
+        <ul class="w3-ul w3-card-4" id="post">
+            <li class="w3-padding-16" onclick="onClickOpenPost()">
+                <span class="w3-closebtn w3-padding" id="liType">培养方案</span>
+                <span class="w3-xlarge" id="liPostTitle">2017级面向对象的先修课程是？</span><br>
+                <span id="liUser">小红</span>
+            </li>
+            <li class="w3-padding-16">
+                <span class="w3-closebtn w3-padding">课程安排</span>
+                <span class="w3-xlarge">面向对象的课程安排过少</span><br>
+                <span>小蓝</span>
+            </li>
+            <li class="w3-padding-16">
+                <span class="w3-closebtn w3-padding">水贴</span>
+                <span class="w3-xlarge">我和你荡秋千，荡到那天外天</span><br>
+                <span>小白</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w3-modal" id="postWindow">
+        <div class="w3-modal-content w3-animate-bottom">
+            <header class="w3-container w3-light-grey">
+                <h3 id="postTitle"></h3>
+                <span onclick="$('#postWindow').hide()"
+                      class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+            </header>
+
+            <div class="w3-container">
+                <div id="replies">
+                </div>
+<!--                <p><strong></strong></p>-->
+<!--                <p></p>-->
+<!--                <hr>-->
+                <div>
+                    <input class="w3-input w3-border" type="text" id='postReply' placeholder="回复">
+                    <button type="button" class="w3-btn w3-green w3-round w3-margin-top" onclick="onClickAddReply()"
+                            id="submitReply">Submit
+                    </button>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

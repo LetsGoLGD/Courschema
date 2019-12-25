@@ -33,7 +33,7 @@ public class AdjustServlet extends HttpServlet {
         ShowService ss = new ShowServiceImpl();
         List<CourseBean> showCourse = ss.courseList(year,department,plan);
         request.setAttribute("List",showCourse);
-        request.getRequestDispatcher("edit.jsp").forward(request,response);
+        request.getRequestDispatcher("course.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {

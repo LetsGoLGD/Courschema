@@ -31,42 +31,24 @@ public class ShowDaoImpl implements ShowDao {
         }
         List<CourseBean> cb = null;
         connection = dbutil.getConnection();
-        String sql="select *\n" +
-                "from course c\n" +
-                "       join plan_course p on c.id_course = p.id_course\n" +
-                "      join schema_plan sp on p.id_plan = sp.id_auto\n" +
-                "  join major m on c.open_major = m.id_major\n" +
-                "left join pre_course pc on c.id_course = pc.id_course\n" +
-                "left join course c2 on c2.id_course = pc.pre_course_id\n" +
-                "order by c.abbr_course;";
+        String sql="select c.id_course,c.abbr_course,m.name_major,pc.name_course,sp.year,pc.inter_year,pc.adivse_semster,c.open_time,pc.score_course,pc.inter_year,pc.group_message\n" +
+                "from course c join plan_course pc on c.id_course = pc.id_course\n" +
+                "    join schema_plan sp on pc.id_plan = sp.id_auto\n" +
+                "join major m on c.open_major = m.id_major\n" +
+                "order by c.abbr_course ;";
         preparedStatement=connection.prepareStatement(sql);
         resultSet=preparedStatement.executeQuery();
         cb=new ArrayList<CourseBean>();
-        String last = "";
-        int indexOfDupli = 0;
-        int cnt = 0;
         while (resultSet.next()){
             CourseBean C = new CourseBean();
             C.setId(resultSet.getInt(1));
-            C.setMajor(resultSet.getString(19));
-            C.setName(resultSet.getString(2));
-            String code = resultSet.getString(3);
-            C.setCode(code);
-            if(last.equals(code)){
-                String tmp = cb.get(indexOfDupli).getPre();
-                tmp = tmp + "," + resultSet.getString(24);
-                cb.get(indexOfDupli).setPre(tmp);
-                continue;
-            }else {
-                indexOfDupli = cnt;
-            }
-            C.setPre(resultSet.getString(24)==null?"无":resultSet.getString(24));
-            last = code;
-            cnt++;
+            C.setMajor(resultSet.getString(3));
+            C.setName(resultSet.getString(4));
+            C.setCode(resultSet.getString(2));
             C.setCredit(resultSet.getInt(9));
-            C.setPeriod(resultSet.getInt(10)*16);
-            C.setYear(resultSet.getInt(14));
-            int adYear = resultSet.getInt(12);
+            C.setPeriod(resultSet.getInt(9)*16);
+            C.setYear(resultSet.getInt(5));
+            int adYear = resultSet.getInt(7);
             String ad = "";
             switch (adYear){
                 case 1:
@@ -98,22 +80,15 @@ public class ShowDaoImpl implements ShowDao {
                     break;
             }
             C.setAd_year(ad);
-            int order = resultSet.getInt(15);
+            int order = resultSet.getInt(10);
             if(order==1){
                 C.setPlanOrder(13);
             }else{
                 C.setPlanOrder(22);
             }
-            String attr = resultSet.getString(12);
-            if(attr.equals("1")){
-                C.setAttr("必修");
-            }else if(attr.equals("1")){
-                C.setAttr("选修");
-            }else {
-                C.setAttr("核心");
-            }
+            C.setAttr(resultSet.getString(11));
             String open_tim = "";
-            switch (resultSet.getInt(5)){
+            switch (resultSet.getInt(8)){
                 case 1:
                     open_tim = "秋";
                     break;
@@ -131,6 +106,20 @@ public class ShowDaoImpl implements ShowDao {
                     break;
             }
             C.setOpen_time(open_tim);
+            sql = "select c2.name_course from pre_course join course c on pre_course.id_course = c.id_course join course c2 on pre_course_id = c2.id_course\n" +
+                    "where pre_course.id_course=?";
+            PreparedStatement preparedStatement2=connection.prepareStatement(sql);
+            preparedStatement2.setInt(1,C.getId());
+            ResultSet resultSet2=preparedStatement2.executeQuery();
+            String pre = "";
+            while ((resultSet2.next())){
+                String tmp = resultSet2.getString(1)+" ";
+                pre += tmp;
+            }
+            if(pre==""){
+                pre = "无";
+            }
+            C.setPre(pre);
             if(C.getCode().contains(department)&&(plan==""||C.getPlanOrder()==Integer.parseInt(plan))
                     &&(year==""||C.getYear()==Integer.parseInt(year))){
                 cb.add(C);

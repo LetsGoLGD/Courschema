@@ -24,7 +24,7 @@ public class UpdateServlet extends HttpServlet {
         UpdateService us = new UpdateServiceImpl();
         List<CourseBean> showCourse = us.courseInfo(course,department,year,plan);
         request.setAttribute("List",showCourse);
-        request.getRequestDispatcher("edit.jsp").forward(request,response);
+        request.getRequestDispatcher("course.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
