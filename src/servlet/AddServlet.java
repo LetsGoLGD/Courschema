@@ -8,6 +8,9 @@ import service.ShowServiceImpl;
 import service.UpdateService;
 import service.UpdateServiceImpl;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,13 +37,31 @@ public class AddServlet extends HttpServlet {
         System.out.println(request.getSession().getAttribute("year")+" "+
                 request.getSession().getAttribute("department")+" "+ request.getSession().getAttribute("plan") );
         UpdateService us = new UpdateServiceImpl();
+        if(request.getSession().getAttribute("year")==null||request.getSession().getAttribute("department")==null
+        ||request.getSession().getAttribute("plan")==null){
+            response.getWriter().println("<script>alert('请先选择培养方案。');  window.location='course.jsp' </script>");
+            response.getWriter().flush();
+            response.getWriter().close();
+        }
         try {
             int re = us.add(courseName,shortName,credit,semester,major,request.getSession().getAttribute("year"),
                     request.getSession().getAttribute("department"),request.getSession().getAttribute("plan"));
+            if(re==1){
+                System.out.println("success");
+                response.getWriter().println("<script>alert('添加成功。');  window.location='course.jsp' </script>");
+                response.getWriter().flush();
+                response.getWriter().close();
+//                request.getRequestDispatcher("AdjustServlet").forward(request,response);
+            }else {
+                System.out.println("failure");
+                response.getWriter().println("<script>alert('请核实课程信息后填写。');window.location='course.jsp'  </script>");
+                response.getWriter().flush();
+                response.getWriter().close();
+//                request.getRequestDispatcher("AdjustServlet").forward(request,response);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("AdjustServlet").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {

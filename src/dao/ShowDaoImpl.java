@@ -80,10 +80,8 @@ public class ShowDaoImpl implements ShowDao {
         List<CourseBean> cb = null;
         connection = dbutil.getConnection();
         String sql="select c.id_course,c.abbr_course,m.name_major,pc.name_course,sp.year,pc.inter_year,pc.adivse_semster,c.open_time,pc.score_course,pc.inter_year,pc.group_message,pc.id_plan\n" +
-                "from course c join plan_course pc on c.id_course = pc.id_course\n" +
-                "    join schema_plan sp on pc.id_plan = sp.id_auto\n" +
-                "join major m on c.open_major = m.id_major\n" +
-                "order by c.abbr_course ;";
+                "from course c join plan_course pc on c.id_course = pc.id_course join schema_plan sp on pc.id_plan = sp.id_auto\n" +
+                "join major m on c.open_major = m.id_major order by c.abbr_course ;";
         preparedStatement=connection.prepareStatement(sql);
         resultSet=preparedStatement.executeQuery();
         cb=new ArrayList<CourseBean>();
@@ -171,16 +169,16 @@ public class ShowDaoImpl implements ShowDao {
             int id_plan = resultSet.getInt(12);
             C.setPlanNum(id_plan);
             if(y*d*p!=0){
-                sql = "select * from schema_plan sp join plan_course pc on sp.id_auto = pc.id_plan\n" +
-                        "where sp.year=? and sp.inter_year = ?  and sp.major_schema = ?;";
+                sql = "select * from schema_plan sp join plan_course pc on sp.id_auto = pc.id_plan where sp.year=? and sp.inter_year = ?  and sp.major_schema = ?;";
                 PreparedStatement preparedStatement3=connection.prepareStatement(sql);
                 preparedStatement3.setInt(1,y);
                 preparedStatement3.setInt(2,p);
                 preparedStatement3.setInt(3,d);
                 ResultSet resultSet3=preparedStatement3.executeQuery();
+//                C.print_c();
                 int num = 0;
                 if(resultSet3.next()){
-                    num = resultSet3.getInt(1);
+                    num = resultSet3.getInt(6);
                 }
                 if(num==id_plan){
                     cb.add(C);

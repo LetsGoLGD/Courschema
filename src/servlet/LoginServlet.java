@@ -24,12 +24,13 @@ public class LoginServlet extends HttpServlet {
         UserService userservice = new UserServiceImpl();
         int result = 0;
         result = userservice.login(username, password);
-        PrintWriter out = response.getWriter();
         if (result == 1) {
             request.getSession().setAttribute("username",username);
             request.getRequestDispatcher("SelfInfoServlet").forward(request, response);
         } else {
-            out.println("<script>alert('用户名或密码错误。'); window.location='login.jsp' </script>");
+            response.getWriter().println("<script>alert('用户名或密码错误。'); window.location='login.jsp' </script>");
+            response.getWriter().flush();
+            response.getWriter().close();
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

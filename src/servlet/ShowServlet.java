@@ -26,25 +26,9 @@ public class ShowServlet extends HttpServlet {
         String year = "";
         String department = "";
         String plan = "";
-        int cntForPara = 0;
         year = request.getParameter("year");
         department = request.getParameter("department");
         plan = request.getParameter("plan");
-        if(request.getParameter("year")==null){
-            cntForPara ++;
-        }
-        if(request.getParameter("department")==null){
-            cntForPara ++;
-        }
-        if(request.getParameter("plan")==null){
-            cntForPara ++;
-        }
-        System.out.println(cntForPara);
-//        if(cntForPara>0&&cntForPara<3){
-//            PrintWriter out = response.getWriter();
-//            out.println("<script>alert('请输入三项内容。'); window.location='schema.jsp' </script>");
-//            System.out.println("there");
-//        }
         ShowService ss = new ShowServiceImpl();
         List<CourseBean> showCourse = null;
         if(year!=null&&department!=null&&plan!=null){

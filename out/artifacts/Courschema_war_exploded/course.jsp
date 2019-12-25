@@ -169,24 +169,26 @@
                             </select>
                         </div>
                         <div class="w3-margin">
-                            开课学期:
+                            建议修读学期:
                             <select class="w3-select" name="semester">
                                 <option disabled selected>--</option>
-                                <option value="1">春</option>
-                                <option value="2">秋</option>
-                                <option value="3">秋/春</option>
+                                <option value="1">大一上</option>
+                                <option value="2">大一下</option>
+                                <option value="3">大二上</option>
+                                <option value="4">大二下</option>
+                                <option value="5">大三上</option>
+                                <option value="6">大三下</option>
+                                <option value="7">大四上</option>
+                                <option value="8">大四下</option>
                             </select>
                         </div>
                         <div class="w3-margin">
-                            开课院系:
+                            课程类别:
                             <select class="w3-select" name="major">
                                 <option disabled selected>--</option>
-                                <option value="1">计算机系</option>
-                                <option value="2">金融系</option>
-                                <option value="3">物理系</option>
-                                <option value="4">数学系</option>
-                                <option value="5">生物系</option>
-                                <option value="6">电子系</option>
+                                <option value="1">专业先修</option>
+                                <option value="2">专业选修</option>
+                                <option value="3">专业核心课</option>
                             </select>
                         </div>
 

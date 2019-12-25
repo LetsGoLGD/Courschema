@@ -57,6 +57,7 @@ public class UpdateDaoImpl implements UpdateDao {
     @Override
     public int add(String courseName, String shortName, String credit, String semester, String major,
             Object year,Object department,Object plan) throws Exception {
+        //major = group
         connection = dbutil.getConnection();
         String sql0="select * from course where name_course = ? and abbr_course = ?;";
         preparedStatement=connection.prepareStatement(sql0);
@@ -67,8 +68,58 @@ public class UpdateDaoImpl implements UpdateDao {
             System.out.println("does not exist");
             return 0;
         }
-
-        return 1;
+        sql0 = "select id_plan from schema_plan sp join plan_course pc on sp.id_auto = pc.id_plan join major m on sp.major_schema = m.id_major\n" +
+                "where year = ? and name_major like ? and pc.inter_year = ?";
+        preparedStatement=connection.prepareStatement(sql0);
+        preparedStatement.setInt(1,Integer.parseInt((String)year));
+        preparedStatement.setString(2,"%"+(String)department+"%");
+        preparedStatement.setInt(3,Integer.parseInt((String)plan)==13?1:2);
+        resultSet = preparedStatement.executeQuery();
+        int id_plan = 0;
+        if(resultSet.next()){
+            id_plan = resultSet.getInt(1);
+            System.out.println("plan:"+id_plan);
+        }
+        sql0 = "select * from course where name_course = ?";
+        preparedStatement=connection.prepareStatement(sql0);
+        preparedStatement.setString(1,courseName);
+        resultSet = preparedStatement.executeQuery();
+        int id_course = 0;
+        if(resultSet.next()){
+            id_course = resultSet.getInt(1);
+        }
+        sql0 = "insert into plan_course values (?,?,?,?,?,?,?,?)";
+        String group = "";
+        switch (major){
+            case "1":
+                group = "专业先修";
+                break;
+            case "2":
+                group = "专业选修";
+                break;
+            case "3":
+                group = "专业核心课";
+                break;
+        }
+//        System.out.println(id_plan);
+//        System.out.println(id_course);
+//        System.out.println(courseName);
+//        System.out.println(Integer.parseInt(credit));
+//        System.out.println(4*Integer.parseInt(credit));
+//        System.out.println(group);
+//        System.out.println(Integer.parseInt(semester));
+//        System.out.println(Integer.parseInt((String)plan)==13?1:2);
+        preparedStatement=connection.prepareStatement(sql0);
+        preparedStatement.setInt(1,id_plan);
+        preparedStatement.setInt(2,id_course);
+        preparedStatement.setString(3,courseName);
+        preparedStatement.setInt(4,Integer.parseInt(credit));
+        preparedStatement.setInt(5,Integer.parseInt(credit));
+        preparedStatement.setString(6,group);
+        preparedStatement.setInt(7,Integer.parseInt(semester));
+        preparedStatement.setInt(8,Integer.parseInt((String)plan)==13?1:2);
+        int re = preparedStatement.executeUpdate();
+        return re;
     }
 
 }
