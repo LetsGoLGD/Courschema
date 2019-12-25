@@ -21,6 +21,10 @@ import java.util.List;
 @WebServlet(name = "SelfInfoServlet")
 public class SelfInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String username = (String) request.getSession().getAttribute("username");
         UserService us = new UserServiceImpl();
         List<UserBean> info = us.info(username);
@@ -30,7 +34,7 @@ public class SelfInfoServlet extends HttpServlet {
         request.getSession().setAttribute("mail",ub.getMail());
         request.getSession().setAttribute("stu_year",ub.getGrade());
         request.getSession().setAttribute("major",ub.getDepartment());
-        request.getSession().setAttribute("id",ub.getId()+"");
+        request.getSession().setAttribute("id",ub.getId());
         request.getRequestDispatcher("self_info.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

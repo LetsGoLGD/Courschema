@@ -13,7 +13,7 @@
     <script src="scripts/schema.js"></script>
     <script src="scripts/jquery.tablesorter.min.js"></script>
 </head>
-<body onload="load()">
+<body onload="load()" id="body" style="background-image: url('assert/bgp.jpeg')">
 <!--创建body的时候加载load，设置个人信息和修过的课程-->
 <div class="w3-bar w3-teal w3-display-container">
     <div class="w3-bar-item ">
@@ -29,7 +29,7 @@
         </a>
     </div>
 </div>
-<button class="w3-button w3-left w3-xlarge" onclick="$('#mySidebar').show()">☰</button>
+<button class="w3-button w3-left w3-xlarge" onclick="$('#mySidebar').show()" id="btn">☰</button>
 
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
@@ -54,29 +54,31 @@
 
         <div class="info">
             Name: <%=(String)session.getAttribute("name")%><br/>
-            UID: <%=(String)session.getAttribute("id")%><br/>
+            UID: <%=(int)session.getAttribute("id")%><br/>
             Gender: <%=(String)session.getAttribute("gender")%><br/>
             Grade: <%=(String)session.getAttribute("stu_year")%><br/>
             Major: <%=(String)session.getAttribute("major")%><br/>
             Mail: <%=(String)session.getAttribute("mail")%>
         </div>
     </div>
-    <div id="block2">
-        <div class="info">
-            <img class="img" src="assert/self2.png" >
-            <div>Courses Taken</div>
-        </div>
+    <div id="right">
+        <div id="block2">
+            <div class="info">
+                <img class="img" src="assert/self2.png" >
+                <div>Courses Taken</div>
+            </div>
 
-        <div id="course">
+            <div id="course">
+            </div>
         </div>
-    </div>
-    <div id="block3">
-        <div class="info">
-            <img class="img" src="assert/self3.png" >
-            <div>Bulletin Board</div>
-        </div>
+        <div id="block3">
+            <div class="info">
+                <img class="img" src="assert/self3.png" >
+                <div onclick="board()">Bulletin Board</div>
+            </div>
 
-        <div id="board">
+            <div id="board">
+            </div>
         </div>
     </div>
 

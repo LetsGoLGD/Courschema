@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("username",username);
             request.getRequestDispatcher("SelfInfoServlet").forward(request, response);
         } else {
-            out.println("<script>alert('Username or password is wrong'); window.location='login.jsp' </script>");
+            out.println("<script>alert('用户名或密码错误。'); window.location='login.jsp' </script>");
         }
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

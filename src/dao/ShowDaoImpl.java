@@ -169,6 +169,7 @@ public class ShowDaoImpl implements ShowDao {
             }
             C.setPre(pre);
             int id_plan = resultSet.getInt(12);
+            C.setPlanNum(id_plan);
             if(y*d*p!=0){
                 sql = "select * from schema_plan sp join plan_course pc on sp.id_auto = pc.id_plan\n" +
                         "where sp.year=? and sp.inter_year = ?  and sp.major_schema = ?;";

@@ -13,26 +13,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "AdjustServlet")
 public class AdjustServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String year = "";
         String department = "";
         String plan = "";
-        year = request.getParameter("year")==null? (String) request.getSession().getAttribute("year")
-                : request.getParameter("year");
-        department = request.getParameter("department")==null? (String) request.getSession().getAttribute("department")
-                : request.getParameter("department");
-        plan = request.getParameter("plan")==null? (String) request.getSession().getAttribute("plan")
-                : request.getParameter("plan");
-        request.getSession().setAttribute("year",year);
-        request.getSession().setAttribute("department",department);
-        request.getSession().setAttribute("plan",plan);
+        year = request.getParameter("year")!=null?request.getParameter("year"): (String) request.getSession().getAttribute("year");
+        department = request.getParameter("department")!=null?request.getParameter("department"): (String) request.getSession().getAttribute("department");
+        plan = request.getParameter("plan")!=null?request.getParameter("plan"): (String) request.getSession().getAttribute("plan");
         ShowService ss = new ShowServiceImpl();
-        List<CourseBean> showCourse = ss.courseList(year,department,plan);
-        request.setAttribute("List",showCourse);
+        List<CourseBean> showCourse = null;
+        if(year!=null&&department!=null&&plan!=null){
+            showCourse = ss.courseList(year,department,plan);
+            request.getSession().setAttribute("year",year);
+            request.getSession().setAttribute("department",department);
+            request.getSession().setAttribute("plan",plan);
+        }
+        request.getSession().setAttribute("List",showCourse);
         request.getRequestDispatcher("course.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

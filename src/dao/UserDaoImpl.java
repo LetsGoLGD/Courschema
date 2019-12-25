@@ -19,7 +19,6 @@ public class UserDaoImpl implements UserDao {
     public int login(String username, String password) throws Exception {
         int result = 0;
         connection = dbutil.getConnection();
-        System.out.println("User:"+username+" password:"+password+" is visiting database...");
         String sql = "select count(*) from userinfo where username=? and password=?";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, username);
@@ -69,6 +68,12 @@ public class UserDaoImpl implements UserDao {
         }
         dbutil.closeDBResource(connection, preparedStatement, resultSet);
         return list;
+    }
+
+    @Override
+    public List<CourseBean> show(String username) {
+        //sql-------------------
+        return null;
     }
 
     public static final String KEY_SHA = "SHA";

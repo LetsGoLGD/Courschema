@@ -45,20 +45,29 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>UpdateServlet</servlet-name>
-        <servlet-class>servlet.UpdateServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UpdateServlet</servlet-name>
-        <url-pattern>/UpdateServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>AdjustServlet</servlet-name>
         <servlet-class>servlet.AdjustServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdjustServlet</servlet-name>
         <url-pattern>/AdjustServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>servlet.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>servlet.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
 </web-app>

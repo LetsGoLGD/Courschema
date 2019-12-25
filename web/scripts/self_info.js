@@ -26,3 +26,8 @@ function load()	{
     board.appendChild(newNotice);
     //添加公告，套个for循环就行
 }
+
+function board() {
+    alert("thing to pop");
+    //这是点击那个公告栏弹出的弹窗，alert里面是弹窗内容
+}

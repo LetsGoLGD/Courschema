@@ -12,6 +12,8 @@
       <list>
         <option value="HTTP Request" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -27,20 +29,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\css" />
-      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
-      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd" />
-      <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\assert" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
       <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
       <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\css" />
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd\scripts" />
+      <recent name="C:\OneDrive\workspace\CS309\Project\frontEnd" />
+      <recent name="C:\Users\PengW\OneDrive\workspace\CS309\Project\frontEnd\assert" />
     </key>
   </component>
   <component name="RunManager">
@@ -95,6 +99,14 @@
       <workItem from="1576768505519" duration="5985000" />
       <workItem from="1576840926700" duration="1212000" />
       <workItem from="1576897879166" duration="9193000" />
+      <workItem from="1576937280036" duration="5000" />
+      <workItem from="1577169182797" duration="6191000" />
+      <workItem from="1577175736202" duration="11002000" />
+      <workItem from="1577194419614" duration="3237000" />
+      <workItem from="1577204578415" duration="3493000" />
+      <workItem from="1577242969819" duration="792000" />
+      <workItem from="1577265629260" duration="29000" />
+      <workItem from="1577265712528" duration="251000" />
     </task>
     <servers />
   </component>
@@ -102,10 +114,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="416" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576078233260">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2336" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577175752673">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="416" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576078233260" />
+    <state x="2336" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1577175752673" />
     <state width="1922" height="357" key="GridCell.Tab.0.bottom" timestamp="1576142178363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -174,19 +187,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576051334839" />
-    <state x="2496" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1576897879160">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="576" y="337" key="com.intellij.ide.util.TipDialog" timestamp="1577265633288">
+      <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="461" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576569564869" />
     <state x="576" y="302" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576508552439" />
-    <state x="576" y="337" key="com.intellij.ide.util.TipDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1576840926631" />
-    <state x="2496" y="313" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1576897879160" />
-    <state x="2543" y="248" width="840" height="706" key="search.everywhere.popup" timestamp="1576899205008">
+    <state x="576" y="337" key="com.intellij.ide.util.TipDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1577265633288" />
+    <state x="2496" y="313" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1577204578669" />
+    <state x="2543" y="248" width="840" height="706" key="search.everywhere.popup" timestamp="1577205447075">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="498" y="189" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576477475010" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576054378047" />
     <state x="623" y="274" width="840" height="683" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1576736878827" />
-    <state x="2543" y="248" width="840" height="706" key="search.everywhere.popup/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1576899205008" />
+    <state x="1246" y="307" width="1680" height="778" key="search.everywhere.popup/0.34.3840.1190@0.34.3840.1190" timestamp="1577174877021" />
+    <state x="2543" y="248" width="840" height="706" key="search.everywhere.popup/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1577205447075" />
   </component>
 </project>

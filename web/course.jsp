@@ -47,50 +47,46 @@
 </div>
 
 
-<div style="margin-left:10%; margin-top:80px;margin-right:10%">
+<div style="margin-left:20%; margin-top:80px;margin-right:20%">
     <div>
         <form action="AdjustServlet" method="post">
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="year">
-                <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
-                        (String) request.getSession().getAttribute("year"):"--"%></option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                <option value="2016">2016</option>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="year" id="yearSelector">
+                    <option disabled selected>--</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="plan">
-                <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
-                        (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
-                                +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
-                <option value="22">2+2</option>
-                <option value="13">1+3</option>
-            </select>
-        </div>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="plan" id="planSelector">
+                    <option disabled selected>--</option>
+                    <option value="22">2+2</option>
+                    <option value="13">1+3</option>
+                </select>
+            </div>
 
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="department">
-                <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
-                        (String) request.getSession().getAttribute("department"):"--"%></option>
-                <option value="CS">CS</option>
-                <option value="MA">MA</option>
-                <option value="BO">BO</option>
-                <option value="EL">EL</option>
-                <option value="PH">PH</option>
-                <option value="FI">FI</option>
-            </select>
-        </div>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="department" id="departmentSelector">
+                    <option disabled selected>--</option>
+                    <option value="CS">CS</option>
+                    <option value="MA">MA</option>
+                    <option value="BO">BO</option>
+                    <option value="EL">EL</option>
+                    <option value="PH">PH</option>
+                    <option value="FI">FI</option>
+                </select>
+            </div>
 
-        <div class="w3-left w3-margin">
-            <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
-            <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
-                <span>Submit</span>
-            </button>
-        </div>
+            <div class="w3-left w3-margin">
+                <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
+                <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
+                    <span>Submit</span>
+                </button>
+            </div>
         </form>
 
 
@@ -117,7 +113,7 @@
             </thead>
             <tbody>
             <%
-                List<CourseBean> list = (List<CourseBean>) request.getAttribute("List");
+                List<CourseBean> list = (List<CourseBean>) request.getSession().getAttribute("List");
                 if (list != null && list.size() > 0) {
                     for (int i=0;i<list.size();i++) {
             %>
@@ -127,7 +123,8 @@
                 <td><%=list.get(i).getOpen_time() %></td>
                 <td><%=list.get(i).getMajor() %></td>
                 <td><%=list.get(i).getPre() %></td>
-                <td><button type='button' class='w3-btn w3-red w3-round' onclick='deleteTableLine(this)'>删除</button></td>
+                <td><button type='submit' class='w3-btn w3-red w3-round' onclick="location.href=
+                        'DeleteServlet?id=<%=list.get(i).getId()%>&&Planid=<%=list.get(i).getPlanNum()%>'">删除</button></td>
                 <td><button type='button' class='w3-btn w3-orange w3-round' onclick='adjustCourseInfo(this)'>修改</button></td>
             </tr>
             <%
@@ -135,7 +132,7 @@
             } else {
             %>
             <tr>
-                <td colspan="6">can not get infomation</td>
+                <td colspan="6">请先选择培养方案</td>
             </tr>
             <%
                 }
@@ -143,24 +140,26 @@
             </tbody>
         </table>
 
-
+        <form action="AddServlet" method="post">
         <div class="w3-modal" id="formWindow">
             <div class="w3-modal-content w3-animate-bottom ">
                 <div class="w3-container" id="otherInfo">
                     <br>
-                    <span class="w3-button w3-xlarge w3-hover-red w3-display-topright" id="hideButton">&times;</span>
-                    <form id="form" id="otherInfoForm">
+                    <span onclick="$('#formWindow').hide()"
+                          class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+                    <form id="form">
                         <div class="w3-margin">
                             课程名:
                             <input type="text" class="w3-input" name="courseName" id="courseName">
                         </div>
-<!--                        <div class="w3-margin">-->
-<!--                            课程简称:-->
-<!--                            <input type="text" class="w3-input" name="shortName" id="shortName">-->
-<!--                        </div>-->
+                        <div class="w3-margin">
+                            课程简称:
+                            <input type="text" class="w3-input" name="shortName" id="shortName">
+
+                        </div>
                         <div class="w3-margin">
                             学分数:
-                            <select class="w3-select" name="credit" id="credit">
+                            <select class="w3-select" name="credit">
                                 <option disabled selected>--</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -171,7 +170,7 @@
                         </div>
                         <div class="w3-margin">
                             开课学期:
-                            <select class="w3-select" name="semester" id="semester">
+                            <select class="w3-select" name="semester">
                                 <option disabled selected>--</option>
                                 <option value="1">春</option>
                                 <option value="2">秋</option>
@@ -180,7 +179,7 @@
                         </div>
                         <div class="w3-margin">
                             开课院系:
-                            <select class="w3-select" name="department" id="department">
+                            <select class="w3-select" name="major">
                                 <option disabled selected>--</option>
                                 <option value="1">计算机系</option>
                                 <option value="2">金融系</option>
@@ -193,23 +192,10 @@
 
 
                     </form>
-                    <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-right"
-                            id="jumpTo" onclick="$('#otherInfo').hide();$('#preInfo').show()">先修课程选择
-                    </button>
-                </div>
-                <div class="w3-container" id="preInfo" style="display: none">
-                    <br>
-                    <span onclick="$('#formWindow').hide()"
-                          class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
-                    <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-left"
-                            id="addPreCourseGroup">添加一行
+
 
                     </button>
-                    <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-left"
-                            id="deletePreCourseGroup">删除选中行
-
-                    </button>
-                    <form class="w3-margin" id="preCourseForm">
+                    <form class="w3-margin">
                         <table id="preCourseTable" class="w3-table-all">
                             <thead>
                             <tr>
@@ -223,20 +209,23 @@
                             <tbody></tbody>
                         </table>
                     </form>
-                    <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-left"
-                            id="jumpToBefore" onclick="$('#preInfo').hide();$('#otherInfo').show()">返回其他信息修改
-                    </button>
 
-                    <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-right"
-                            id="submitButton">Submit
-                        <!--TODO: submit后提交表单-->
+                    <button type="button" class="w3-btn w3-orange w3-margin w3-round w3-left"
+                            id="addPreCourseGroup">添加一行
+
+                    </button>
+                    <button type="button" class="w3-btn w3-red w3-margin w3-round w3-left"
+                            id="deletePreCourseGroup">删除选中行
+                        <button type="submit" class="w3-btn w3-green w3-margin w3-round w3-right"
+                                id="submitButton">Submit
+                        </button>
                     </button>
                 </div>
-
-
             </div>
         </div>
+        </form>
     </div>
+
 
 </div>
 </body>

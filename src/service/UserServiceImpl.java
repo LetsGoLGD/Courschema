@@ -1,5 +1,6 @@
 package service;
 
+import bean.CourseBean;
 import bean.UserBean;
 import dao.UserDao;
 import dao.UserDaoImpl;
@@ -29,5 +30,10 @@ public class UserServiceImpl implements UserService{
             e.printStackTrace();
         }
         return info;
+    }
+
+    @Override
+    public List<CourseBean> show(String username) {
+        return userDao.show(username);
     }
 }

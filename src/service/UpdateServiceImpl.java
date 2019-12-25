@@ -18,4 +18,16 @@ public class UpdateServiceImpl implements UpdateService{
         }
         return cb;
     }
+
+    @Override
+    public void Delete(int id, int planId) throws Exception {
+        ud.Delete(id,planId);
+    }
+
+    @Override
+    public int add(String courseName, String shortName, String credit, String semester, String major, Object year, Object department, Object plan) throws Exception {
+        return ud.add(courseName,shortName,credit,semester,major,year,department,plan);
+    }
+
+
 }
