@@ -236,7 +236,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     float: left;
     width: auto;
     height: 200px;
-    margin-right: 10%;
+    margin-right: 3%;
     /*font: ;*/
 }
 .info{
@@ -256,7 +256,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     color: #FFFFFF;
     float: left;
     width: auto;
-    margin-right: 10%;
+    margin-right: 3%;
     height: 200px;
     overflow-y: auto;
 }
