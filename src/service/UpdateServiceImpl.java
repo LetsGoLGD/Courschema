@@ -25,7 +25,9 @@ public class UpdateServiceImpl implements UpdateService{
     }
 
     @Override
-    public int add(String courseName, String shortName, String credit, String semester, String major) throws Exception {
-        return ud.add(courseName,shortName,credit,semester,major);
+    public int add(String courseName, String shortName, String credit, String semester, String major, Object year, Object department, Object plan) throws Exception {
+        return ud.add(courseName,shortName,credit,semester,major,year,department,plan);
     }
+
+
 }

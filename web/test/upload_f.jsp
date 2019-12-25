@@ -76,8 +76,8 @@
                 <th>Course Name(English)</th>
                 <th>Course Name(中文)</th>
                 <th>Major</th>
-                <!--                <th>Credits</th>-->
-                <!--                <th>Teacher Name</th>-->
+<!--                <th>Credits</th>-->
+<!--                <th>Teacher Name</th>-->
                 <th>Delete</th>
             </tr>
             </tbody>
@@ -103,10 +103,10 @@
                            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
                     <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="addByJson" onclick="jsonToTable()">Upload
                     </button>
-                    <!--                    <input type="file" class="w3-input w3-padding" onchange="importFile(event)" id="fileUpload"-->
-                    <!--                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">-->
-                    <!--                    <input type="button" class="w3-center w3-btn w3-green w3-margin w3-round"-->
-                    <!--                           id="submitFileUpload" value="upload">-->
+<!--                    <input type="file" class="w3-input w3-padding" onchange="importFile(event)" id="fileUpload"-->
+<!--                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">-->
+<!--                    <input type="button" class="w3-center w3-btn w3-green w3-margin w3-round"-->
+<!--                           id="submitFileUpload" value="upload">-->
                     <!--                    </input>-->
                 </div>
 
@@ -145,7 +145,7 @@
                         id="submitFormButton">Submit
                 </button>
                 <button type="button" class="w3-btn w3-green w3-margin w3-round"
-                        id="resetButton">Reset
+                id="resetButton">Reset
                 </button>
                 <button onclick="$('#formWindow').hide()" type="button"
                         class="w3-btn w3-red w3-round w3-margin w3-right" id="exitFormButton">Close

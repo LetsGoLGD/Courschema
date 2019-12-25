@@ -10,5 +10,5 @@ public interface UpdateService {
 
     void Delete(int id, int planId) throws Exception;
 
-    int add(String courseName, String shortName, String credit, String semester, String major) throws Exception;
+    int add(String courseName, String shortName, String credit, String semester, String major, Object year, Object department, Object plan) throws Exception;
 }

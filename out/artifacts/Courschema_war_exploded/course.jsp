@@ -132,7 +132,7 @@
             } else {
             %>
             <tr>
-                <td colspan="6">can not get infomation</td>
+                <td colspan="6">请先选择培养方案</td>
             </tr>
             <%
                 }
@@ -140,7 +140,7 @@
             </tbody>
         </table>
 
-
+        <form action="AddServlet" method="post">
         <div class="w3-modal" id="formWindow">
             <div class="w3-modal-content w3-animate-bottom ">
                 <div class="w3-container" id="otherInfo">
@@ -163,7 +163,6 @@
                                 <option disabled selected>--</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
-                                <option value="1.5">1.5</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -173,9 +172,9 @@
                             开课学期:
                             <select class="w3-select" name="semester">
                                 <option disabled selected>--</option>
-                                <option value="0">春</option>
-                                <option value="1">秋</option>
-                                <option value="2">秋/春</option>
+                                <option value="1">春</option>
+                                <option value="2">秋</option>
+                                <option value="3">秋/春</option>
                             </select>
                         </div>
                         <div class="w3-margin">
@@ -205,7 +204,6 @@
                                 <td>先修课1</td>
                                 <td>先修课2</td>
                                 <td>先修课3</td>
-                                <!--                                <td>先修课4</td>-->
                             </tr>
                             </thead>
                             <tbody></tbody>
@@ -218,17 +216,16 @@
                     </button>
                     <button type="button" class="w3-btn w3-red w3-margin w3-round w3-left"
                             id="deletePreCourseGroup">删除选中行
-                        <button type="button" class="w3-btn w3-green w3-margin w3-round w3-right"
+                        <button type="submit" class="w3-btn w3-green w3-margin w3-round w3-right"
                                 id="submitButton">Submit
-                            <!--TODO: submit后提交表单-->
                         </button>
                     </button>
                 </div>
-
-
             </div>
         </div>
+        </form>
     </div>
+
 
 </div>
 </body>

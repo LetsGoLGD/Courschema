@@ -124,7 +124,7 @@
         } else {
         %>
         <tr>
-            <td colspan="6">can not get infomation</td>
+            <td colspan="6">数据未录入</td>
         </tr>
         <%
             }

@@ -1,5 +1,6 @@
 package dao;
 
+import bean.CourseBean;
 import bean.UserBean;
 
 import java.security.NoSuchAlgorithmException;
@@ -9,4 +10,6 @@ public interface UserDao {
     int login(String username, String password) throws Exception;
 
     List<UserBean> info(String username) throws Exception;
+
+    List<CourseBean> show(String username);
 }

@@ -31,11 +31,12 @@ public class AddServlet extends HttpServlet {
         String semester = request.getParameter("semester");
         String major = request.getParameter("major");
         System.out.println(courseName+" "+shortName+" "+credit+" "+semester+" "+major);
+        System.out.println(request.getSession().getAttribute("year")+" "+
+                request.getSession().getAttribute("department")+" "+ request.getSession().getAttribute("plan") );
         UpdateService us = new UpdateServiceImpl();
-        PrintWriter out = response.getWriter();
-        out.println("<script>alert('所选课程不存在。'); window.location='login.jsp' </script>");
         try {
-            us.add(courseName,shortName,credit,semester,major);
+            int re = us.add(courseName,shortName,credit,semester,major,request.getSession().getAttribute("year"),
+                    request.getSession().getAttribute("department"),request.getSession().getAttribute("plan"));
         } catch (Exception e) {
             e.printStackTrace();
         }
