@@ -61,7 +61,7 @@
             Mail: <%=(String)session.getAttribute("mail")%>
         </div>
     </div>
-    <div class="info">
+    <div id="right">
         <div id="block2">
             <div class="info">
                 <img class="img" src="assert/self2.png" >
