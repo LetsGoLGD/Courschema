@@ -280,7 +280,6 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     background-color: rgba(167, 128, 32, 0.35);
 }
 #body{
-    background-image: url("/assert/bgp.jpeg");
     background-repeat:no-repeat;
     background-size: cover;
 }
