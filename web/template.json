@@ -1,8 +1,7 @@
 {
   "courses": [
     {
-      "courseNameEn": "DSAA",
-      "courseNameZh": "数据结构与算法分析",
+      "courseName": "DSAA",
       "shortName": "CS203",
       "credits": 3,
       "semester": 2,
@@ -44,8 +43,7 @@
       ]
     },
     {
-      "courseNameEn": "course2",
-      "courseNameZh": "课程二",
+      "courseName": "course2",
       "shortName": "CS204",
       "credits": 3,
       "semester": 2,

@@ -55,53 +55,39 @@ function preCourseJsonToTable() {
 
 }
 
-function deleteTableLine(nowTr) {
-    $(nowTr).parent().parent().remove();
+function courseInfoToHTML() {
+
 }
 
-function courseInfoToHTML(nowTr) {
-}
 
-let isAdjust = 0;
-let adjustTr;
-function adjustCourseInfo(nowTr) {
-    $('#formWindow').show();
-    isAdjust = 1;
-    adjustTr = nowTr;
-}
-
-function resetForm() {
-    $('#otherInfoForm')[0].reset();
-    $('#preCourseForm')[0].reset();
-}
 $(document).ready(function () {
     // preCourseJsonToText();
     // TODO: use data from database
     var availableTags = [
-        "ActionScript(CS301)",
-        "AppleScript(CS301)",
-        "Asp(CS301)",
-        "BASIC(CS301)",
-        "C(CS301)",
-        "C++(CS301)",
-        "Clojure(CS301)",
-        "COBOL(CS301)",
-        "ColdFusion(CS301)",
-        "Erlang(CS301)",
-        "Fortran(CS301)",
-        "Groovy(CS301)",
-        "Haskell(CS301)",
-        "Java(CS301)",
-        "JavaScript(CS301)",
-        "Lisp(CS301)",
-        "Perl(CS301)",
-        "PHP(CS301)",
-        "Python(CS301)",
-        "Ruby(CS301)",
-        "Scala(CS301)",
-        "Scheme(CS301)"
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        "COBOL",
+        "ColdFusion",
+        "Erlang",
+        "Fortran",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "JavaScript",
+        "Lisp",
+        "Perl",
+        "PHP",
+        "Python",
+        "Ruby",
+        "Scala",
+        "Scheme"
     ];
-    $('#courseName').autocomplete({
+    $('#shortName').autocomplete({
         source: availableTags
     });
     $('#addButton').click(function (e) {
@@ -109,15 +95,14 @@ $(document).ready(function () {
     });
     // $('#preCourseTable').delegate('input', 'autocomplete')
     $('#addPreCourseGroup').click(function (e) {
+
         var newRowNumber = $("#preCourseTable>tbody>tr").length + 1;
-        let namePreCourse = "preCourse" + newRowNumber.toString();
-        console.log(namePreCourse);
         $("#preCourseTable>tbody").append("<tr class='w3-margin'>" +
             "<td><input type='checkbox' name='preCourseGroupItem' /></td>" +
             "<td>" + newRowNumber + "</td>" +
-            "<td><input type='text' class='preCourse' name=" + namePreCourse + "></td>" +
-            "<td><input type='text' class='preCourse' name=" + namePreCourse + "></td>" +
-            "<td><input type='text' class='preCourse' name=" + namePreCourse + "></td>" +
+            "<td><input type='text' class='preCourse'/></td>" +
+            "<td><input type='text' class='preCourse'/></td>" +
+            "<td><input type='text' class='preCourse'/></td>" +
             // "<td><input type='text' class='preCourse'/></td>" +
             "</tr>");
         $('.preCourse').autocomplete({
@@ -139,84 +124,13 @@ $(document).ready(function () {
         }
     });
     $('#submitButton').click(function (e) {
-        let courseName = document.querySelector('form	input[name="courseName"]').value;
-        let creditObj = document.getElementById("credit");
-        let credit = creditObj.options[creditObj.selectedIndex].value;
-        let semesterObj = document.getElementById("semester");
-        let semester = semesterObj.options[semesterObj.selectedIndex].value;
-        let departmentObj = document.getElementById("department");
-        let department = departmentObj.options[departmentObj.selectedIndex].value;
-        let preCourseInfo = "";
-
-        let preCourseName = 1;
-        let preCourse = document.getElementsByName("preCourse" + preCourseName.toString());
-        console.log("preCourse" + preCourseName.toString());
-        while (preCourse.length !== 0) {
-            if (preCourseName > 1) {
-                preCourseInfo = preCourseInfo + "或者";
-            }
-
-            let notEmpty = new Array(3);
-            let preLength = 0;
-            for (let i = 0; i < preCourse.length; i++) {
-                if (preCourse[i].value.length !== 0) {
-                    notEmpty[preLength] = preCourse[i];
-                    preLength++;
-                }
-            }
-
-            for (let i = 0; i < preLength; i++) {
-                if (i !== preLength - 1) {
-                    preCourseInfo = preCourseInfo + notEmpty[i].value + "和";
-                } else {
-                    preCourseInfo = preCourseInfo + notEmpty[i].value;
-                }
-            }
-
-            preCourseName += 1;
-            preCourse = document.getElementsByName("preCourse" + preCourseName.toString());
-        }
-
-        if (preCourseInfo.length === 0) {
-            preCourseInfo = "--";
-        }
-
-        if (courseName.length === 0 || credit.length === 0 || semester.length === 0 ||
-            department === 0) {
-            alert("请完成表格")
-        } else {
-            var deleteButton = "<button type='button' class='w3-btn w3-red w3-round' onclick='deleteTableLine(this)'>删除</button>";
-            var changeButton = "<button type='button' class='w3-btn w3-orange w3-round' onclick='adjustCourseInfo(this)'>修改</button>";
-            var tr = "<tr><td>" + courseName +
-                "</td><td>" + credit + "</td><td>" + semester + "</td><td>" + department + "</td><td>" + preCourseInfo +
-                "</td><td>" + deleteButton + "</td><td>" + changeButton + "</td></tr>";
-            $("#courseTable").append(tr);
-            $("#formWindow").hide();
-            if (isAdjust === 1) {
-                deleteTableLine(adjustTr);
-            }
-        }
-
-        if (isAdjust === 1) {
-            isAdjust = 0;
-        }
+        //TODO: submit form to server
     });
-
-    $('#SubmitFilter').click(function (e) {
+    $('#refreshButton').click(function (e) {
         //TODO: add refresh event, get data from server
         console.log('test')
-
-        resetForm();
     });
-
-    $('#hideButton').click(function (e) {
-        $('#formWindow').hide();
-        if (isAdjust) {
-            isAdjust = 0;
-        }
-    })
-    $('#courseTable').tablesorter();
-
+    $('#courseTable').tablesorter()
 });
 
 

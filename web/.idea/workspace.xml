@@ -26,8 +26,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
@@ -89,12 +88,6 @@
       <workItem from="1576477136671" duration="4553000" />
       <workItem from="1576505596982" duration="1295000" />
       <workItem from="1576549212675" duration="3000" />
-      <workItem from="1576725412578" duration="65000" />
-      <workItem from="1576725502316" duration="9334000" />
-      <workItem from="1576763066551" duration="8000" />
-      <workItem from="1576768505519" duration="5985000" />
-      <workItem from="1576840926700" duration="1212000" />
-      <workItem from="1576897879166" duration="9193000" />
     </task>
     <servers />
   </component>
@@ -174,19 +167,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576051334839" />
-    <state x="2496" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1576897879160">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="461" y="239" key="com.intellij.ide.util.TipDialog" timestamp="1576569564869">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="461" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576569564869" />
     <state x="576" y="302" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576508552439" />
-    <state x="576" y="337" key="com.intellij.ide.util.TipDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1576840926631" />
-    <state x="2496" y="313" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1576897879160" />
-    <state x="2543" y="248" width="840" height="706" key="search.everywhere.popup" timestamp="1576899205008">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="498" y="189" width="672" height="538" key="search.everywhere.popup" timestamp="1576477475010">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="189" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576477475010" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576054378047" />
-    <state x="623" y="274" width="840" height="683" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1576736878827" />
-    <state x="2543" y="248" width="840" height="706" key="search.everywhere.popup/1920.0.1920.1080/0.144.1920.1080@1920.0.1920.1080" timestamp="1576899205008" />
   </component>
 </project>
