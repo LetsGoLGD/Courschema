@@ -78,6 +78,7 @@
             </div>
 
             <div id="board">
+<%--                Notice: <%=(String)session.getAttribute("notice")%>--%>
             </div>
         </div>
     </div>
