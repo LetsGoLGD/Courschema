@@ -36,15 +36,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>UpdateServlet</servlet-name>
-        <servlet-class>servlet.UpdateServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UpdateServlet</servlet-name>
-        <url-pattern>/UpdateServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>AdjustServlet</servlet-name>
         <servlet-class>servlet.AdjustServlet</servlet-class>
     </servlet>

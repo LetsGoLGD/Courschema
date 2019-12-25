@@ -25,10 +25,20 @@ public class AddServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        String courseName = request.getParameter("courseName");
+        String shortName = request.getParameter("shortName");
         String credit = request.getParameter("credit");
         String semester = request.getParameter("semester");
-        String department = request.getParameter("department");
-        System.out.println(credit+" "+semester+" "+department);
+        String major = request.getParameter("major");
+        System.out.println(courseName+" "+shortName+" "+credit+" "+semester+" "+major);
+        UpdateService us = new UpdateServiceImpl();
+        PrintWriter out = response.getWriter();
+        out.println("<script>alert('所选课程不存在。'); window.location='login.jsp' </script>");
+        try {
+            us.add(courseName,shortName,credit,semester,major);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         request.getRequestDispatcher("AdjustServlet").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

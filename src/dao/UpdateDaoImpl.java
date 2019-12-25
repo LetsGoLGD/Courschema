@@ -54,4 +54,19 @@ public class UpdateDaoImpl implements UpdateDao {
         System.out.println(x);
     }
 
+    @Override
+    public int add(String courseName, String shortName, String credit, String semester, String major) throws Exception {
+        connection = dbutil.getConnection();
+        String sql0="select * from course where name_course = ? and abbr_course = ?;";
+        preparedStatement=connection.prepareStatement(sql0);
+        preparedStatement.setString(1,courseName);
+        preparedStatement.setString(2,shortName);
+        resultSet = preparedStatement.executeQuery();
+        if(!resultSet.next()){
+            return 0;
+        }
+
+        return 1;
+    }
+
 }

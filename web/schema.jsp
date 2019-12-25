@@ -46,48 +46,48 @@
 
 <div style="margin-left:20%; margin-top:80px;margin-right:20%">
     <form action="ShowServlet" method="post">
-    <div>
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="year">
-                <option disabled selected>--</option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                <option value="2016">2016</option>
+        <div>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="year">
+                    <option disabled selected>--</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
 
-            </select>
+                </select>
+            </div>
+
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="plan">
+                    <option disabled selected>--</option>
+                    <option value="22">2+2</option>
+                    <option value="13">1+3</option>
+                </select>
+            </div>
+
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="department">
+                    <option disabled selected>--</option>
+                    <option value="CS">CS</option>
+                    <option value="MA">MA</option>
+                    <option value="BO">BO</option>
+                    <option value="EL">EL</option>
+                    <option value="PH">PH</option>
+                    <option value="FI">FI</option>
+                </select>
+            </div>
+
+            <div class="w3-left w3-margin">
+                <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
+                <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
+                    <span>Submit</span>
+                </button>
+            </div>
+
+
+
         </div>
-
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="plan">
-                <option disabled selected>--</option>
-                <option value="22">2+2</option>
-                <option value="13">1+3</option>
-            </select>
-        </div>
-
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="department">
-                <option disabled selected>--</option>
-                <option value="CS">CS</option>
-                <option value="MA">MA</option>
-                <option value="BO">BO</option>
-                <option value="EL">EL</option>
-                <option value="PH">PH</option>
-                <option value="FI">FI</option>
-            </select>
-        </div>
-
-        <div class="w3-left w3-margin">
-            <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
-            <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
-                <span>Submit</span>
-            </button>
-        </div>
-
-
-
-    </div>
     </form>
     <%
         List<CourseBean> list = (List<CourseBean>) request.getSession().getAttribute("List");
