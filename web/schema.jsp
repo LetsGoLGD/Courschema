@@ -21,7 +21,6 @@
         </a>
     </div>
     <div class="w3-bar-item w3-display-right" style="display: flex; align-items:center">
-        <!--TODO: username from backend-->
         <p class="w3-margin-right"><b>Hello!<%=(String)session.getAttribute("username")%></b></p>
         <a href="login.jsp" class="w3-margin-right">
             <!--TODO: do something to stop the login in backend?-->
@@ -99,7 +98,6 @@
     %>
     <table class="tablesorter w3-centered" id="schemaTable">
         <thead>
-        <!--TODO: connect with database-->
         <tr>
             <th>Course Name</th>
             <th>Course ID</th>

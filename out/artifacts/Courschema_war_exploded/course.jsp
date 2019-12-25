@@ -227,11 +227,11 @@
                     <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-left"
                             id="jumpToBefore" onclick="$('#preInfo').hide();$('#otherInfo').show()">返回其他信息修改
                     </button>
-
-                    <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-right"
+                    <form action="AddServlet" method="post">
+                    <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round w3-margin w3-right"
                             id="submitButton">Submit
-                        <!--TODO: submit后提交表单-->
                     </button>
+                    </form>
                 </div>
 
 

@@ -18,23 +18,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "DeleteServlet")
-public class DeleteServlet extends HttpServlet {
+@WebServlet(name = "AddServlet")
+public class AddServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        int id = 0;
-        int planId = 0;
-        id = Integer.parseInt(request.getParameter("id"));
-        planId = Integer.parseInt(request.getParameter("Planid"));
-        UpdateService us = new UpdateServiceImpl();
-        try {
-            us.Delete(id,planId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String credit = request.getParameter("credit");
+        String semester = request.getParameter("semester");
+        String department = request.getParameter("department");
+        System.out.println(credit+" "+semester+" "+department);
         request.getRequestDispatcher("AdjustServlet").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
