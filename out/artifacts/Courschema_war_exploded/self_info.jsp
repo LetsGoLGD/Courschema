@@ -54,29 +54,31 @@
 
         <div class="info">
             Name: <%=(String)session.getAttribute("name")%><br/>
-            UID: <%=(String)session.getAttribute("id")%><br/>
+            UID: <%=(int)session.getAttribute("id")%><br/>
             Gender: <%=(String)session.getAttribute("gender")%><br/>
             Grade: <%=(String)session.getAttribute("stu_year")%><br/>
             Major: <%=(String)session.getAttribute("major")%><br/>
             Mail: <%=(String)session.getAttribute("mail")%>
         </div>
     </div>
-    <div id="block2">
-        <div class="info">
-            <img class="img" src="assert/self2.png" >
-            <div>Courses Taken</div>
-        </div>
+    <div id="right">
+        <div id="block2">
+            <div class="info">
+                <img class="img" src="assert/self2.png" >
+                <div>Courses Taken</div>
+            </div>
 
-        <div id="course">
+            <div id="course">
+            </div>
         </div>
-    </div>
-    <div id="block3">
-        <div class="info">
-            <img class="img" src="assert/self3.png" >
-            <div>Bulletin Board</div>
-        </div>
+        <div id="block3">
+            <div class="info">
+                <img class="img" src="assert/self3.png" >
+                <div>Bulletin Board</div>
+            </div>
 
-        <div id="board">
+            <div id="board">
+            </div>
         </div>
     </div>
 

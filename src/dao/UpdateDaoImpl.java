@@ -32,4 +32,26 @@ public class UpdateDaoImpl implements UpdateDao {
         }
         return cb;
     }
+
+    @Override
+    public void Delete(int id, int planId) throws Exception {
+        connection = dbutil.getConnection();
+        String sql0="select * from plan_course where id_plan = ? and id_course = ?;";
+        preparedStatement=connection.prepareStatement(sql0);
+        preparedStatement.setInt(1,planId);
+        preparedStatement.setInt(2,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            System.out.println("Exists id="+id+",plan="+planId);
+        }else{
+            System.out.println("does not exist id="+id+",plan="+planId);
+        }
+        sql0="delete from plan_course where id_plan = ? and id_course = ?;";
+        preparedStatement=connection.prepareStatement(sql0);
+        preparedStatement.setInt(1,planId);
+        preparedStatement.setInt(2,id);
+        int x = preparedStatement.executeUpdate();
+        System.out.println(x);
+    }
+
 }

@@ -54,7 +54,7 @@
 
         <div class="info">
             Name: <%=(String)session.getAttribute("name")%><br/>
-            UID: <%=(String)session.getAttribute("id")%><br/>
+            UID: <%=(int)session.getAttribute("id")%><br/>
             Gender: <%=(String)session.getAttribute("gender")%><br/>
             Grade: <%=(String)session.getAttribute("stu_year")%><br/>
             Major: <%=(String)session.getAttribute("major")%><br/>
