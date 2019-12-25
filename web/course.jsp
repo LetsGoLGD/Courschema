@@ -47,7 +47,7 @@
 </div>
 
 
-<div style="margin-left:10%; margin-top:80px;margin-right:10%">
+<div style="margin-left:20%; margin-top:80px;margin-right:20%">
     <div>
         <form action="AdjustServlet" method="post">
             <div class="w3-left w3-margin">
@@ -132,7 +132,7 @@
             } else {
             %>
             <tr>
-                <td colspan="6">can not get infomation</td>
+                <td colspan="6">请先选择培养方案</td>
             </tr>
             <%
                 }

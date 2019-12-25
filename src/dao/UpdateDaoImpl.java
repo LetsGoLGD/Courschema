@@ -63,6 +63,7 @@ public class UpdateDaoImpl implements UpdateDao {
         preparedStatement.setString(2,shortName);
         resultSet = preparedStatement.executeQuery();
         if(!resultSet.next()){
+            System.out.println("does not exist");
             return 0;
         }
 

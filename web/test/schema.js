@@ -9,7 +9,7 @@ $(document).ready(function () {
         if (flag) {
             alert("Please select all 3 value");
         } else {
-            // TODO: add action here
+        // TODO: add action here
         }
     });
     $('#schemaTable').tablesorter();
