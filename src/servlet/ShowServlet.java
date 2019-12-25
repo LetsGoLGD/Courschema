@@ -37,7 +37,7 @@ public class ShowServlet extends HttpServlet {
         }else{
            showCourse = ss.courseList(null,null,null);
         }
-        request.setAttribute("List",showCourse);
+        request.getSession().setAttribute("List",showCourse);
         request.getRequestDispatcher("schema.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

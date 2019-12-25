@@ -95,7 +95,7 @@
     </div>
     </form>
     <%
-        List<CourseBean> list = (List<CourseBean>) request.getAttribute("List");
+        List<CourseBean> list = (List<CourseBean>) request.getSession().getAttribute("List");
     %>
     <table class="tablesorter w3-centered" id="schemaTable">
         <thead>

@@ -18,4 +18,9 @@ public class UpdateServiceImpl implements UpdateService{
         }
         return cb;
     }
+
+    @Override
+    public void Delete(int id, int planId) throws Exception {
+        ud.Delete(id,planId);
+    }
 }

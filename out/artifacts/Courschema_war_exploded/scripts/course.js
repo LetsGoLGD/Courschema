@@ -77,6 +77,7 @@ function resetForm() {
 $(document).ready(function () {
     // preCourseJsonToText();
     // TODO: use data from database
+
     var availableTags = [
         "ActionScript(CS301)",
         "AppleScript(CS301)",

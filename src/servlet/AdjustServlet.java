@@ -18,6 +18,10 @@ import java.util.List;
 @WebServlet(name = "AdjustServlet")
 public class AdjustServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String year = "";
         String department = "";
         String plan = "";
@@ -31,8 +35,13 @@ public class AdjustServlet extends HttpServlet {
         request.getSession().setAttribute("department",department);
         request.getSession().setAttribute("plan",plan);
         ShowService ss = new ShowServiceImpl();
-        List<CourseBean> showCourse = ss.courseList(year,department,plan);
-        request.setAttribute("List",showCourse);
+        List<CourseBean> showCourse = null;
+        if(year!=null&&department!=null&&plan!=null){
+            showCourse = ss.courseList(year,department,plan);
+        }else{
+            showCourse = ss.courseList(null,null,null);
+        }
+        request.getSession().setAttribute("List",showCourse);
         request.getRequestDispatcher("course.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

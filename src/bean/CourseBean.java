@@ -13,6 +13,15 @@ public class CourseBean {
     private String ad_year;
     private String open_time;
     private String pre;
+    private int planNum;
+
+    public int getPlanNum() {
+        return planNum;
+    }
+
+    public void setPlanNum(int planNum) {
+        this.planNum = planNum;
+    }
 
     public String getPre() {
         return pre;
