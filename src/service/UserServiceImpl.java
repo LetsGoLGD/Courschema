@@ -34,6 +34,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<CourseBean> show(String username) {
-        return userDao.show(username);
+        List<CourseBean> result = null;
+        try {
+            result = userDao.show(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

@@ -28,7 +28,14 @@ public class SelfServlet extends HttpServlet {
         String username = (String) request.getSession().getAttribute("username");
         UserService ss = new UserServiceImpl();
         List<CourseBean> showSelf = null;
-        showSelf = ss.show(username);
+        try {
+            showSelf = ss.show(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        CourseBean cb = showSelf.get(0);
+        request.getSession().setAttribute("abbr_namme", cb.getAbbr_name());
+        request.getSession().setAttribute("course_name", cb.getCourse_name());
         request.getSession().setAttribute("List",showSelf);
         request.getRequestDispatcher("schema.jsp").forward(request,response);
     }

@@ -71,9 +71,22 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<CourseBean> show(String username) {
-        //sql-------------------
-        return null;
+    public List<CourseBean> show(String username) throws Exception {
+        connection = dbutil.getConnection();
+        String sql = "select abbr_course,name_course from (select username,id_course from userinfo join user_course uc on userinfo.id = uc.id_user) x join course c on c.id_course = x.id_course\n" +
+                "where username = ?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, username);
+        resultSet = preparedStatement.executeQuery();
+        List<CourseBean> list = new ArrayList<CourseBean>();
+        while (resultSet.next()) {
+            CourseBean cb= new CourseBean();
+            cb.setAbbr_name(resultSet.getString(0));
+            cb.setCourse_name(resultSet.getString(1));
+            list.add(cb);
+        }
+        dbutil.closeDBResource(connection, preparedStatement, resultSet);
+        return list;
     }
 
     public static final String KEY_SHA = "SHA";

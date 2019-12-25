@@ -14,6 +14,8 @@ public class CourseBean {
     private String open_time;
     private String pre;
     private int planNum;
+    private String abbr_name;
+    private String course_name;
 
     public int getPlanNum() {
         return planNum;
@@ -117,6 +119,22 @@ public class CourseBean {
 
     public void setPeriod(int period) {
         this.period = period;
+    }
+
+    public String getAbbr_name() {
+        return abbr_name;
+    }
+
+    public void setAbbr_name(String abbr_name) {
+        this.abbr_name = abbr_name;
+    }
+
+    public String getCourse_name() {
+        return course_name;
+    }
+
+    public void setCourse_name(String course_name) {
+        this.course_name = course_name;
     }
 }
 

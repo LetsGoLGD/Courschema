@@ -76,7 +76,28 @@
                 <img class="img" src="assert/self3.png" >
                 <div>Bulletin Board</div>
             </div>
-
+            <%
+                List<CourseBean> list = (List<CourseBean>) request.getSession().getAttribute("List");
+                if (list != null && list.size() > 0) {
+                    for (int i=0;i<list.size();i++) {
+            %>
+            <tr>
+                <td><%=list.get(i).getName()%></td>
+                <td><%=list.get(i).getCode()%></td>
+                <td><%=list.get(i).getCredit() %></td>
+                <td><%=list.get(i).getAd_year() %></td>
+                <td><%=list.get(i).getMajor() %></td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="6">数据未录入</td>
+            </tr>
+            <%
+                }
+            %>
             <div id="board">
 <%--                Notice: <%=(String)session.getAttribute("notice")%>--%>
             </div>
