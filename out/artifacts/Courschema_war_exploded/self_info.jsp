@@ -39,7 +39,7 @@
     <a href="ShowServlet" class="w3-bar-item w3-button">查看培养方案</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
     <a href="AdjustServlet" class="w3-bar-item w3-button">修改培养方案</a>
-    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>
+<%--    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>--%>
     <!--TODO: Q&A model to add-->
     <a href="PostServlet" class="w3-bar-item w3-button">论坛</a>
 </div>
@@ -69,12 +69,21 @@
             </div>
 
             <div id="course">
+<%--                <%--%>
+<%--                    String [] abbr_name = (String[]) session.getAttribute("abbr_name");--%>
+<%--                    String [] course_name = (String[]) session.getAttribute("course_name");--%>
+<%--                    for (int i=0;i<abbr_name.length;i++) {--%>
+<%--                %>--%>
+<%--                    <span>Course Name: <%=abbr_name[i] + " " + course_name[i]%></span>--%>
+<%--                <%--%>
+<%--                    }--%>
+<%--                %>--%>
             </div>
         </div>
         <div id="block3">
             <div class="info">
                 <img class="img" src="assert/self3.png" >
-                <div onclick="board()">Bulletin Board</div>
+                <div>Bulletin Board</div>
             </div>
 
             <div id="board">

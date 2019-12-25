@@ -26,9 +26,12 @@ public class ShowServlet extends HttpServlet {
         String year = "";
         String department = "";
         String plan = "";
-        year = request.getParameter("year");
-        department = request.getParameter("department");
-        plan = request.getParameter("plan");
+        year = request.getParameter("year")!=null?request.getParameter("year"): (String) request.getSession().getAttribute("year");
+        department = request.getParameter("department")!=null?request.getParameter("department"): (String) request.getSession().getAttribute("department");
+        plan = request.getParameter("plan")!=null?request.getParameter("plan"): (String) request.getSession().getAttribute("plan");
+        request.getSession().setAttribute("year",year);
+        request.getSession().setAttribute("department",department);
+        request.getSession().setAttribute("plan",plan);
         ShowService ss = new ShowServiceImpl();
         List<CourseBean> showCourse = null;
         if(year!=null&&department!=null&&plan!=null){

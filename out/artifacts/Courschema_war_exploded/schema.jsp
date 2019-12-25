@@ -43,7 +43,7 @@
     <a href="ShowServlet" class="w3-bar-item w3-button">查看培养方案</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
     <a href="AdjustServlet" class="w3-bar-item w3-button">修改培养方案</a>
-    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>
+<%--    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>--%>
     <!--TODO: Q&A model to add-->
     <a href="PostServlet" class="w3-bar-item w3-button">论坛</a>
 </div>
@@ -54,7 +54,8 @@
         <div>
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="year" id="yearSelector">
-                    <option disabled selected>--</option>
+                    <option disabled selected><%=request.getSession().getAttribute("year")
+                                            !=null?request.getSession().getAttribute("year"):"--"%></option>
                     <option value="2019">2019</option>
                     <option value="2018">2018</option>
                     <option value="2017">2017</option>
@@ -65,7 +66,9 @@
 
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="plan"  id="planSelector">
-                    <option disabled selected>--</option>
+                    <option disabled selected><%=request.getSession().getAttribute("plan")
+                            !=null?(((String)request.getSession().getAttribute("plan")).charAt(0)+
+                    "+"+((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
                     <option value="22">2+2</option>
                     <option value="13">1+3</option>
                 </select>
@@ -73,7 +76,8 @@
 
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="department" id="departmentSelector">
-                    <option disabled selected>--</option>
+                    <option disabled selected><%=request.getSession().getAttribute("department")
+                            !=null?request.getSession().getAttribute("department"):"--"%></option>
                     <option value="CS">CS</option>
                     <option value="MA">MA</option>
                     <option value="BO">BO</option>

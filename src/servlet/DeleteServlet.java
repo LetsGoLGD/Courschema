@@ -25,6 +25,11 @@ public class DeleteServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        if((int)request.getSession().getAttribute("authority")<4){
+            response.getWriter().println("<script>alert('权限不足。');  window.location='course.jsp' </script>");
+            response.getWriter().flush();
+            response.getWriter().close();
+        }
         int id = 0;
         int planId = 0;
         id = Integer.parseInt(request.getParameter("id"));

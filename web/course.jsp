@@ -24,7 +24,7 @@
     </div>
     <div class="w3-bar-item w3-display-right" style="display: flex; align-items:center">
         <!--TODO: username from backend-->
-        <p class="w3-margin-right"><b>Hello! Username</b></p>
+        <p class="w3-margin-right"><b>Hello!<%=(String)session.getAttribute("username")%></b></p>
         <a href="login.jsp" class="w3-margin-right">
             <!--TODO: do something to stop the login in backend?-->
             <button class="w3-btn w3-white w3-border w3-border-blue w3-round ">Log out</button>
@@ -41,7 +41,7 @@
     <a href="ShowServlet" class="w3-bar-item w3-button">查看培养方案</a>
     <!--TODO: if current login is not admin, ask to login as admin-->
     <a href="AdjustServlet" class="w3-bar-item w3-button">修改培养方案</a>
-    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>
+<%--    <a href="upload_f.jsp" class="w3-bar-item w3-button">上传课程</a>--%>
     <!--TODO: Q&A model to add-->
     <a href="PostServlet" class="w3-bar-item w3-button">论坛</a>
 </div>
@@ -52,7 +52,8 @@
         <form action="AdjustServlet" method="post">
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="year" id="yearSelector">
-                    <option disabled selected>--</option>
+                    <option disabled selected><%=request.getSession().getAttribute("year")
+                            !=null?request.getSession().getAttribute("year"):"--"%></option>
                     <option value="2019">2019</option>
                     <option value="2018">2018</option>
                     <option value="2017">2017</option>
@@ -63,7 +64,9 @@
 
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="plan" id="planSelector">
-                    <option disabled selected>--</option>
+                    <option disabled selected><%=request.getSession().getAttribute("plan")
+                            !=null?(((String)request.getSession().getAttribute("plan")).charAt(0)+
+                            "+"+((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
                     <option value="22">2+2</option>
                     <option value="13">1+3</option>
                 </select>
@@ -71,7 +74,8 @@
 
             <div class="w3-left w3-margin">
                 <select class="w3-select" name="department" id="departmentSelector">
-                    <option disabled selected>--</option>
+                    <option disabled selected><%=request.getSession().getAttribute("department")
+                            !=null?request.getSession().getAttribute("department"):"--"%></option>
                     <option value="CS">CS</option>
                     <option value="MA">MA</option>
                     <option value="BO">BO</option>
@@ -84,7 +88,7 @@
             <div class="w3-left w3-margin">
                 <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
                 <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
-                    <span>Submit</span>
+                    <span>提交</span>
                 </button>
             </div>
         </form>
@@ -92,7 +96,7 @@
 
         <div class="w3-right">
             <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="addButton">
-                <span>Add a course</span>
+                <span>新增课程</span>
             </button>
 
         </div>
@@ -108,7 +112,7 @@
                 <th>开课院系</th>
                 <th>先修要求</th>
                 <th>删除</th>
-                <th>修改</th>
+<%--                <th>修改</th>--%>
             </tr>
             </thead>
             <tbody>
@@ -125,7 +129,7 @@
                 <td><%=list.get(i).getPre() %></td>
                 <td><button type='submit' class='w3-btn w3-red w3-round' onclick="location.href=
                         'DeleteServlet?id=<%=list.get(i).getId()%>&&Planid=<%=list.get(i).getPlanNum()%>'">删除</button></td>
-                <td><button type='button' class='w3-btn w3-orange w3-round' onclick='adjustCourseInfo(this)'>修改</button></td>
+<%--                <td><button type='button' class='w3-btn w3-orange w3-round' onclick='adjustCourseInfo(this)'>修改</button></td>--%>
             </tr>
             <%
                 }
@@ -219,7 +223,7 @@
                     <button type="button" class="w3-btn w3-red w3-margin w3-round w3-left"
                             id="deletePreCourseGroup">删除选中行
                         <button type="submit" class="w3-btn w3-green w3-margin w3-round w3-right"
-                                id="submitButton">Submit
+                                id="submitButton">提交
                         </button>
                     </button>
                 </div>

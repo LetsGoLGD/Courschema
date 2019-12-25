@@ -98,28 +98,28 @@ public class ShowDaoImpl implements ShowDao {
             String ad = "";
             switch (adYear){
                 case 1:
-                    ad = "大一上";
+                    ad = "1_1:大一上";
                     break;
                 case 2:
-                    ad = "大一下";
+                    ad = "1_2:大一下";
                     break;
                 case 3:
-                    ad = "大二上";
+                    ad = "2_1:大二上";
                     break;
                 case 4:
-                    ad = "大二下";
+                    ad = "2_2:大二下";
                     break;
                 case 5:
-                    ad = "大三上";
+                    ad = "3_1:大三上";
                     break;
                 case 6:
-                    ad = "大三下";
+                    ad = "3_2:大三下";
                     break;
                 case 7:
-                    ad = "大四上";
+                    ad = "4_1:大四上";
                     break;
                 case 8:
-                    ad = "大四下";
+                    ad = "4_2:大四下";
                     break;
                 default:
                     ad = "任意";

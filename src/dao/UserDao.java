@@ -12,4 +12,6 @@ public interface UserDao {
     List<UserBean> info(String username) throws Exception;
 
     List<CourseBean> show(String username) throws Exception;
+
+    int getAU(String username) throws Exception;
 }

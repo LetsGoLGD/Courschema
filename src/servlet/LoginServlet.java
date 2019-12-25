@@ -25,6 +25,11 @@ public class LoginServlet extends HttpServlet {
         int result = 0;
         result = userservice.login(username, password);
         if (result == 1) {
+            try {
+                request.getSession().setAttribute("authority",userservice.getAU(username));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             request.getSession().setAttribute("username",username);
             request.getRequestDispatcher("SelfInfoServlet").forward(request, response);
         } else {

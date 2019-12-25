@@ -23,12 +23,17 @@ public class AdjustServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        if((int)request.getSession().getAttribute("authority")<2){
+            response.getWriter().println("<script>alert('这是你所无法涉足的领域。');  window.location='schema.jsp' </script>");
+            response.getWriter().flush();
+            response.getWriter().close();
+        }
         String year = "";
         String department = "";
         String plan = "";
-        year = request.getParameter("year");
-        department = request.getParameter("department");
-        plan = request.getParameter("plan");
+        year = request.getParameter("year")!=null?request.getParameter("year"): (String) request.getSession().getAttribute("year");
+        department = request.getParameter("department")!=null?request.getParameter("department"): (String) request.getSession().getAttribute("department");
+        plan = request.getParameter("plan")!=null?request.getParameter("plan"): (String) request.getSession().getAttribute("plan");
         request.getSession().setAttribute("year",year);
         request.getSession().setAttribute("department",department);
         request.getSession().setAttribute("plan",plan);

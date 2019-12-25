@@ -89,6 +89,21 @@ public class UserDaoImpl implements UserDao {
         return list;
     }
 
+    @Override
+    public int getAU(String username) throws Exception {
+        connection = dbutil.getConnection();
+        String sql = "select is_admin from userinfo where username=?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, username);
+        resultSet = preparedStatement.executeQuery();
+        int r = 0;
+        while (resultSet.next()) {
+            r = resultSet.getInt(1);
+            System.out.println("AU:"+r);
+        }
+        return r;
+    }
+
     public static final String KEY_SHA = "SHA";
     public String SHAPassword(String password) throws NoSuchAlgorithmException {
         BigInteger sha = null;

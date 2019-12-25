@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService{
         }
         return result;
     }
+
+    @Override
+    public int getAU(String username) throws Exception {
+        return userDao.getAU(username);
+    }
 }
