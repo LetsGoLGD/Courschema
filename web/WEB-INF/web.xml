@@ -27,6 +27,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>PostServlet</servlet-name>
+        <servlet-class>servlet.PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostServlet</servlet-name>
+        <url-pattern>/PostServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>SelfInfoServlet</servlet-name>
         <servlet-class>servlet.SelfInfoServlet</servlet-class>
     </servlet>

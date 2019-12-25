@@ -19,6 +19,13 @@ function onClickAll() {
     schema.className = "";
     water.className = "";
     self.className = "";
+    document.getElementById('post').style.display = '';
+    document.getElementById('selfPost').style.display = 'none';
+    let lists = document.getElementById("post").children;
+    for(let i = 0; i < lists.length; i++){
+        let type = lists[i].innerText.trim().split(/\s+/);
+        lists[i].style.display = '';
+    }
 }
 
 function onClickCourse() {
@@ -28,6 +35,17 @@ function onClickCourse() {
     schema.className = "";
     water.className = "";
     self.className = "";
+    document.getElementById('post').style.display = '';
+    document.getElementById('selfPost').style.display = 'none';
+    let lists = document.getElementById("post").children;
+    for(let i = 0; i < lists.length; i++){
+        let type = lists[i].innerText.trim().split(/\s+/);
+        if (type[0] !== "课程安排"){
+            lists[i].style.display = 'none';
+        } else {
+            lists[i].style.display = '';
+        }
+    }
 }
 
 function onClickSchema() {
@@ -37,6 +55,17 @@ function onClickSchema() {
     schema.className = "w3-green";
     water.className = "";
     self.className = "";
+    document.getElementById('post').style.display = '';
+    document.getElementById('selfPost').style.display = 'none';
+    let lists = document.getElementById("post").children;
+    for(let i = 0; i < lists.length; i++){
+        let type = lists[i].innerText.trim().split(/\s+/);
+        if (type[0] !== "培养方案"){
+            lists[i].style.display = 'none';
+        } else {
+            lists[i].style.display = '';
+        }
+    }
 }
 
 function onClickWater() {
@@ -46,6 +75,17 @@ function onClickWater() {
     schema.className = "";
     water.className = "w3-green";
     self.className = "";
+    document.getElementById('post').style.display = '';
+    document.getElementById('selfPost').style.display = 'none';
+    let lists = document.getElementById("post").children;
+    for(let i = 0; i < lists.length; i++){
+        let type = lists[i].innerText.trim().split(/\s+/);
+        if (type[0] !== "水贴"){
+            lists[i].style.display = 'none';
+        } else {
+            lists[i].style.display = '';
+        }
+    }
 }
 
 function onClickSelf() {
@@ -55,6 +95,8 @@ function onClickSelf() {
     schema.className = "";
     water.className = "";
     self.className = "w3-green";
+    document.getElementById('post').style.display = 'none';
+    document.getElementById('selfPost').style.display = '';
 }
 
 function addPost(title, content, type) {
@@ -86,35 +128,13 @@ function onClickAddReply() {
 
 function getReplyContent(user, content) {
     return "<p><strong>" + user + "</strong></p>" +
-    "<p>" + content + "</p>" +
-    "<hr>";
-}
-
-function onClickOpenPost() {
-    let type = "培养方案";
-    let title = "2017级面向对象的先修课程是？" + " [" + type + "] ";
-    let user = "小红";
-    let content = "请问今年的面向对象课程的先修课是？";
-    let replies = [{user: "小白", content: "好像是java"}, {user: "小蓝", content: "的确是java"}];
-    let replies_div = document.getElementById("replies");
-    let replies_html = "<p><strong>" + user + "</strong></p>" +
         "<p>" + content + "</p>" +
         "<hr>";
+}
 
-    for(let i = 0; i < replies.length; i++){
-        replies_html = replies_html + getReplyContent(replies[i].user, replies[i].content);
-    }
-
-    // replies_html = replies_html + "<input class=\"w3-input w3-border\" type=\"text\" id='postReply' placeholder=\"回复\">";
-    // replies_html = replies_html + "<button type=\"button\" onclick='onClickAddReply()' class=\"w3-btn w3-green w3-round w3-margin-top\"" +
-    //     "id=\"submitReply\">Submit" +
-    //     "</button><hr>";
-
-    replies_div.innerHTML = replies_html;
-
-    let postTitle = document.getElementById("postTitle");
-    postTitle.textContent = title;
-    $('#postWindow').show();
+function onClickOpenPost(topicId) {
+    // alert(topicId);
+    $('#' + ('postWindow' + topicId)).show();
 }
 
 function submitPost() {
