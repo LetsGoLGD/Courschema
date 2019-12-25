@@ -78,7 +78,7 @@ public class UserDaoImpl implements UserDao {
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, username);
         resultSet = preparedStatement.executeQuery();
-        List<CourseBean> list = new ArrayList<CourseBean>();
+        List<CourseBean> list = new ArrayList<>();
         while (resultSet.next()) {
             CourseBean cb= new CourseBean();
             cb.setAbbr_name(resultSet.getString(0));

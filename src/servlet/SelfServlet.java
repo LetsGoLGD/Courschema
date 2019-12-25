@@ -33,9 +33,16 @@ public class SelfServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        CourseBean cb = showSelf.get(0);
-        request.getSession().setAttribute("abbr_namme", cb.getAbbr_name());
-        request.getSession().setAttribute("course_name", cb.getCourse_name());
+        assert showSelf != null;
+        String []abbr_name = new String[showSelf.size()];
+        String []course_name = new String[showSelf.size()];
+        for(int i = 0; i < showSelf.size(); i++){
+            abbr_name[i] = showSelf.get(i).getAbbr_name();
+            course_name[i] = showSelf.get(i).getCourse_name();
+        }
+
+        request.getSession().setAttribute("abbr_namme", abbr_name);
+        request.getSession().setAttribute("course_name", course_name);
         request.getSession().setAttribute("List",showSelf);
         request.getRequestDispatcher("schema.jsp").forward(request,response);
     }
