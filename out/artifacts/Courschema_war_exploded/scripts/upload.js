@@ -148,7 +148,7 @@ $(document).ready(function () {
         "Scheme(CS301)"
     ];
 
-    $('#courseNameEn').autoComplete({
+    $('#courseNameEn').autocomplete({
         source: availableTags
     });
     $("#uploadByForm").click(function () {
@@ -162,7 +162,7 @@ $(document).ready(function () {
     });
 
     $("#addButton").click(function () {
-        $("#formWindow").toggle();
+        $("#formWindow").show();
     });
     $("#form").validate();
 

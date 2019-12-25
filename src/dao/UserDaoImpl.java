@@ -70,6 +70,12 @@ public class UserDaoImpl implements UserDao {
         return list;
     }
 
+    @Override
+    public List<CourseBean> show(String username) {
+        //sql-------------------
+        return null;
+    }
+
     public static final String KEY_SHA = "SHA";
     public String SHAPassword(String password) throws NoSuchAlgorithmException {
         BigInteger sha = null;

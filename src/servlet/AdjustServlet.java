@@ -26,36 +26,19 @@ public class AdjustServlet extends HttpServlet {
         String year = "";
         String department = "";
         String plan = "";
-        int cntForPara = 0;
-        year = request.getParameter("year");
-        department = request.getParameter("department");
-        plan = request.getParameter("plan");
-        if(request.getParameter("year")!=null){
-            cntForPara ++;
+        year = request.getParameter("year")!=null?request.getParameter("year"): (String) request.getSession().getAttribute("year");
+        department = request.getParameter("department")!=null?request.getParameter("department"): (String) request.getSession().getAttribute("department");
+        plan = request.getParameter("plan")!=null?request.getParameter("plan"): (String) request.getSession().getAttribute("plan");
+        ShowService ss = new ShowServiceImpl();
+        List<CourseBean> showCourse = null;
+        if(year!=null&&department!=null&&plan!=null){
+            showCourse = ss.courseList(year,department,plan);
+            request.getSession().setAttribute("year",year);
+            request.getSession().setAttribute("department",department);
+            request.getSession().setAttribute("plan",plan);
         }
-        if(request.getParameter("department")!=null){
-            cntForPara ++;
-        }
-        if(request.getParameter("plan")!=null){
-            cntForPara ++;
-        }
-        System.out.println(cntForPara);
-        request.getSession().setAttribute("firstAdjust",false);
-        if(cntForPara<3&&(boolean)request.getSession().getAttribute("firstAdjust")){
-            request.getSession().setAttribute("auth",false);
-            System.out.println(request.getSession().getAttribute("auth"));
-            PrintWriter out = response.getWriter();
-            out.println("<script>alert('请选择三项内容。');window.location='login.jsp'</script>");
-        }else {
-            request.getSession().setAttribute("firstAdjust",true);
-            ShowService ss = new ShowServiceImpl();
-            List<CourseBean> showCourse = null;
-            if(year!=null&&department!=null&&plan!=null){
-                showCourse = ss.courseList(year,department,plan);
-            }
-            request.getSession().setAttribute("List",showCourse);
-            request.getRequestDispatcher("course.jsp").forward(request,response);
-        }
+        request.getSession().setAttribute("List",showCourse);
+        request.getRequestDispatcher("course.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {

@@ -78,6 +78,7 @@
             </div>
 
             <div id="board">
+
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@ $(document).ready(function () {
             $("#planSelector option:selected").text() == "--";
 
         if (flag) {
-            alert("Please select all 3 value");
+            alert("请填入三个选项。");
         } else {
             // TODO: add action here
         }
