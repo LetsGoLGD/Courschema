@@ -61,22 +61,24 @@
             Mail: <%=(String)session.getAttribute("mail")%>
         </div>
     </div>
-    <div id="block2">
-        <div class="info">
-            <img class="img" src="assert/self2.png" >
-            <div>Courses Taken</div>
-        </div>
+    <div class="info">
+        <div id="block2">
+            <div class="info">
+                <img class="img" src="assert/self2.png" >
+                <div>Courses Taken</div>
+            </div>
 
-        <div id="course">
+            <div id="course">
+            </div>
         </div>
-    </div>
-    <div id="block3">
-        <div class="info">
-            <img class="img" src="assert/self3.png" >
-            <div>Bulletin Board</div>
-        </div>
+        <div id="block3">
+            <div class="info">
+                <img class="img" src="assert/self3.png" >
+                <div>Bulletin Board</div>
+            </div>
 
-        <div id="board">
+            <div id="board">
+            </div>
         </div>
     </div>
 
