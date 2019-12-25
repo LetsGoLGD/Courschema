@@ -50,47 +50,47 @@
 <div style="margin-left:10%; margin-top:80px;margin-right:10%">
     <div>
         <form action="AdjustServlet" method="post">
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="year">
-                <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
-                        (String) request.getSession().getAttribute("year"):"--"%></option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                <option value="2016">2016</option>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="year" id="yearSelector">
+                    <option disabled selected><%=(String) request.getSession().getAttribute("year")!=null?
+                            (String) request.getSession().getAttribute("year"):"--"%></option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="plan">
-                <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
-                        (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
-                                +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
-                <option value="22">2+2</option>
-                <option value="13">1+3</option>
-            </select>
-        </div>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="plan" id="planSelector">
+                    <option disabled selected><%=(String) request.getSession().getAttribute("plan")!=null?
+                            (((String) request.getSession().getAttribute("plan")).charAt(0)+"+"
+                                    +((String) request.getSession().getAttribute("plan")).charAt(1)):"--"%></option>
+                    <option value="22">2+2</option>
+                    <option value="13">1+3</option>
+                </select>
+            </div>
 
-        <div class="w3-left w3-margin">
-            <select class="w3-select" name="department">
-                <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
-                        (String) request.getSession().getAttribute("department"):"--"%></option>
-                <option value="CS">CS</option>
-                <option value="MA">MA</option>
-                <option value="BO">BO</option>
-                <option value="EL">EL</option>
-                <option value="PH">PH</option>
-                <option value="FI">FI</option>
-            </select>
-        </div>
+            <div class="w3-left w3-margin">
+                <select class="w3-select" name="department" id="departmentSelector">
+                    <option disabled selected><%=(String) request.getSession().getAttribute("department")!=null?
+                            (String) request.getSession().getAttribute("department"):"--"%></option>
+                    <option value="CS">CS</option>
+                    <option value="MA">MA</option>
+                    <option value="BO">BO</option>
+                    <option value="EL">EL</option>
+                    <option value="PH">PH</option>
+                    <option value="FI">FI</option>
+                </select>
+            </div>
 
-        <div class="w3-left w3-margin">
-            <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
-            <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
-                <span>Submit</span>
-            </button>
-        </div>
+            <div class="w3-left w3-margin">
+                <!--            <i id="refreshButton" class="w3-button fa fa-refresh w3-round-xxlarge w3-center"></i>-->
+                <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
+                    <span>Submit</span>
+                </button>
+            </div>
         </form>
 
 
@@ -145,87 +145,88 @@
         </table>
 
 
-   <div class="w3-modal" id="formWindow">
-                <div class="w3-modal-content w3-animate-bottom ">
-                    <div class="w3-container" id="otherInfo">
-                        <br>
-                        <span onclick="$('#formWindow').hide()"
-                            class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
-                        <form id="form">
-                            <div class="w3-margin">
-                                课程名:
-                                <input type="text" class="w3-input" name="courseName">
-                            </div>
-                            <div class="w3-margin">
-                                课程简称:
-                                <input type="text" class="w3-input" name="shortName" id="shortName">
+        <div class="w3-modal" id="formWindow">
+            <div class="w3-modal-content w3-animate-bottom ">
+                <div class="w3-container" id="otherInfo">
+                    <br>
+                    <span onclick="$('#formWindow').hide()"
+                          class="w3-button w3-xlarge w3-hover-red w3-display-topright">&times;</span>
+                    <form id="form">
+                        <div class="w3-margin">
+                            课程名:
+                            <input type="text" class="w3-input" name="courseName" id="courseName">
+                        </div>
+                        <div class="w3-margin">
+                            课程简称:
+                            <input type="text" class="w3-input" name="shortName" id="shortName">
 
-                            </div>
-                            <div class="w3-margin">
-                                学分数:
-                                <select class="w3-select" name="credit">
-                                    <option disabled selected>--</option>
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="1.5">1.5</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                            <div class="w3-margin">
-                                开课学期:
-                                <select class="w3-select" name="semester">
-                                    <option disabled selected>--</option>
-                                    <option value="0">春</option>
-                                    <option value="1">秋</option>
-                                    <option value="2">秋/春</option>
-                                </select>
-                            </div>
-                            <div class="w3-margin">
-                                开课院系:
-                                <select class="w3-select" name="semester">
-                                    <option disabled selected>--</option>
-                                    <!--TODO: 后端返回数据填充-->
-                                </select>
-                            </div>
-
-
-                        </form>
+                        </div>
+                        <div class="w3-margin">
+                            学分数:
+                            <select class="w3-select" name="credit">
+                                <option disabled selected>--</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="w3-margin">
+                            开课学期:
+                            <select class="w3-select" name="semester">
+                                <option disabled selected>--</option>
+                                <option value="0">春</option>
+                                <option value="1">秋</option>
+                                <option value="2">秋/春</option>
+                            </select>
+                        </div>
+                        <div class="w3-margin">
+                            开课院系:
+                            <select class="w3-select" name="semester">
+                                <option disabled selected>--</option>
+                                <!--TODO: 后端返回数据填充-->
+                            </select>
+                        </div>
 
 
-                        </button>
-                        <form class="w3-margin">
-                            <table id="preCourseTable" class="w3-table-all">
-                                <thead>
-                                    <tr>
-                                        <td>选中</td>
-                                        <td>id</td>
-                                        <td>先修课1</td>
-                                        <td>先修课2</td>
-                                        <td>先修课3</td>
-                                        <!--                                <td>先修课4</td>-->
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </form>
+                    </form>
 
-                        <button type="button" class="w3-btn w3-orange w3-margin w3-round w3-left"
+
+                    </button>
+                    <form class="w3-margin">
+                        <table id="preCourseTable" class="w3-table-all">
+                            <thead>
+                            <tr>
+                                <td>选中</td>
+                                <td>id</td>
+                                <td>先修课1</td>
+                                <td>先修课2</td>
+                                <td>先修课3</td>
+                                <!--                                <td>先修课4</td>-->
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </form>
+
+                    <button type="button" class="w3-btn w3-orange w3-margin w3-round w3-left"
                             id="addPreCourseGroup">添加一行
 
-                        </button>
-                        <button type="button" class="w3-btn w3-red w3-margin w3-round w3-left"
+                    </button>
+                    <button type="button" class="w3-btn w3-red w3-margin w3-round w3-left"
                             id="deletePreCourseGroup">删除选中行
                         <button type="button" class="w3-btn w3-green w3-margin w3-round w3-right"
-                            id="submitButton">Submit
+                                id="submitButton">Submit
                             <!--TODO: submit后提交表单-->
                         </button>
-                        </button>
-                    </div>
-
+                    </button>
                 </div>
+
+
             </div>
+        </div>
     </div>
 
 </div>
