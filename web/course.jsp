@@ -94,12 +94,12 @@
         </form>
 
 
-        <div class="w3-right">
-            <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="addButton">
-                <span>新增课程</span>
-            </button>
+<%--        <div class="w3-right">--%>
+<%--            <button type="button" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="addButton">--%>
+<%--                <span>新增课程</span>--%>
+<%--            </button>--%>
 
-        </div>
+<%--        </div>--%>
     </div>
     <div class="w3-container">
 
@@ -111,6 +111,7 @@
                 <th>开课学期</th>
                 <th>开课院系</th>
                 <th>先修要求</th>
+                <th>添加</th>
                 <th>删除</th>
 <%--                <th>修改</th>--%>
             </tr>
@@ -127,6 +128,8 @@
                 <td><%=list.get(i).getOpen_time() %></td>
                 <td><%=list.get(i).getMajor() %></td>
                 <td><%=list.get(i).getPre() %></td>
+                <td><button type='submit' class='w3-btn w3-green w3-round' onclick="location.href=
+                        'DeleteServlet?id=<%=list.get(i).getId()%>&&Planid=<%=list.get(i).getPlanNum()%>'">添加</button></td>
                 <td><button type='submit' class='w3-btn w3-red w3-round' onclick="location.href=
                         'DeleteServlet?id=<%=list.get(i).getId()%>&&Planid=<%=list.get(i).getPlanNum()%>'">删除</button></td>
 <%--                <td><button type='button' class='w3-btn w3-orange w3-round' onclick='adjustCourseInfo(this)'>修改</button></td>--%>
