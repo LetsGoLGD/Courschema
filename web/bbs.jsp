@@ -65,11 +65,11 @@
                     <span onclick="$('#formWindow').hide()"
                           class="w3-button w3-xlarge w3-hover-red w3-display-topright w3-teal" style="position: absolute;top: 7%;transform: translateY(-50%);">&times;</span>
                 </div>
-                <form class="w3-container w3-card-4" name="post">
+                    <form class="w3-container w3-card-4" name="post" action="AddPostServlet" method="post">
                     <br>
                     <p>
                         <label class="w3-text-grey">标题</label>
-                        <input class="w3-input" type="text" id="title">
+                        <input class="w3-input" type="text" id="title" name="title">
                     </p>
                     <p>
                         <label class="w3-text-grey">类别</label>
@@ -87,10 +87,10 @@
                     <br>
                     <p>
                         <label class="w3-text-grey">内容</label>
-                        <textarea class="w3-input" style="resize:none" spellcheck="false" id="content"></textarea>
+                        <textarea class="w3-input" style="resize:none" spellcheck="false" id="content" name="content"></textarea>
                     </p>
                     <p>
-                        <button type="button" onclick="submitPost()" class="w3-btn w3-padding w3-teal" style="width:120px"><strong>发布</strong> &nbsp; ❯</button>
+                        <button type="submit" class="w3-btn w3-padding w3-teal" style="width:120px"><strong>发布</strong> &nbsp; ❯</button>
                     </p>
                 </form>
             </div>
@@ -101,7 +101,7 @@
         List<TopicBean> list = (List<TopicBean>) request.getAttribute("List");
     %>
     <div style="margin-top:20px">
-        <ul class="w3-ul w3-card-4" id="post">
+        <ul class="w3-ul w3-card-4" id="postList">
             <%
                 for (TopicBean topicBean : list) {
             %>
@@ -161,7 +161,8 @@
                 %>
                 <div>
                     <input class="w3-input w3-border" type="text" id='postReply<%=topicBean.getId()%>' placeholder="回复">
-                    <button type="button" class="w3-btn w3-green w3-round w3-margin-top" onclick="onClickAddReply()"
+                    <button type="submit" class="w3-btn w3-green w3-round w3-margin-top"
+                            onclick="location.href='AddReplyServlet?topic_id=<%=topicBean.getId()%>&&replyContent='+document.getElementById('postReply<%=topicBean.getId()%>').value"
                             id="submitReply">提交
                     </button>
                 </div>

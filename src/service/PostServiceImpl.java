@@ -19,4 +19,14 @@ public class PostServiceImpl implements PostService {
     public List<TopicBean> getTopics() throws Exception {
         return this.postDao.getTopics();
     }
+
+    @Override
+    public int addPost(String type, String userName, String content, String title) throws Exception {
+        return this.postDao.addPost(type, userName, content, title);
+    }
+
+    @Override
+    public int addReply(String topic_id, String userName, String content) throws Exception {
+        return postDao.addReply(topic_id, userName, content);
+    }
 }

@@ -72,6 +72,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AddPostServlet</servlet-name>
+        <servlet-class>servlet.AddPostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPostServlet</servlet-name>
+        <url-pattern>/AddPostServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddReplyServlet</servlet-name>
+        <servlet-class>servlet.AddReplyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddReplyServlet</servlet-name>
+        <url-pattern>/AddReplyServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>MailServlet</servlet-name>
         <servlet-class>servlet.MailServlet</servlet-class>
     </servlet>
