@@ -157,7 +157,7 @@
                             <input type="text" class="w3-input" name="courseName" id="courseName">
                         </div>
                         <div class="w3-margin">
-                            课程简称:
+                            课程别名:
                             <input type="text" class="w3-input" name="shortName" id="shortName">
 
                         </div>
@@ -197,34 +197,29 @@
                         </div>
 
 
-                    </form>
-
-
-                    </button>
-                    <form class="w3-margin">
                         <table id="preCourseTable" class="w3-table-all">
                             <thead>
                             <tr>
-                                <td>选中</td>
-                                <td>id</td>
                                 <td>先修课1</td>
                                 <td>先修课2</td>
                                 <td>先修课3</td>
                             </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                            <tr class='w3-margin'>
+
+                                <td><input type='text' class='preCourse' name='pc1'></td>
+                                <td><input type='text' class='preCourse' name='pc2'></td>
+                                <td><input type='text' class='preCourse' name='pc3'></td>
+
+                            </tr>
+                            </tbody>
                         </table>
                     </form>
 
-                    <button type="button" class="w3-btn w3-orange w3-margin w3-round w3-left"
-                            id="addPreCourseGroup">添加一行
 
-                    </button>
-                    <button type="button" class="w3-btn w3-red w3-margin w3-round w3-left"
-                            id="deletePreCourseGroup">删除选中行
-                        <button type="submit" class="w3-btn w3-green w3-margin w3-round w3-right"
-                                id="submitButton">提交
-                        </button>
+                    <button type="submit" class="w3-btn w3-green w3-margin w3-round w3-right"
+                            id="submitButton">提交
                     </button>
                 </div>
             </div>

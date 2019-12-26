@@ -221,31 +221,32 @@ $(document).ready(function() {
         $("#formWindow").show();
     });
     // $('#preCourseTable').delegate('input', 'autocomplete')
-    $("#addPreCourseGroup").click(function(e) {
-        var newRowNumber = $("#preCourseTable>tbody>tr").length + 1;
-        let namePreCourse = "preCourse" + newRowNumber.toString();
-        console.log(namePreCourse);
-        $("#preCourseTable>tbody").append(
-            "<tr class='w3-margin'>" +
-            "<td><input type='checkbox' name='preCourseGroupItem' /></td>" +
-            "<td>" +
-            newRowNumber +
-            "</td>" +
-            "<td><input type='text' class='preCourse' name=" +
-            namePreCourse +
-            "></td>" +
-            "<td><input type='text' class='preCourse' name=" +
-            namePreCourse +
-            "></td>" +
-            "<td><input type='text' class='preCourse' name=" +
-            namePreCourse +
-            "></td>" +
-            // "<td><input type='text' class='preCourse'/></td>" +
-            "</tr>"
-        );
-        $(".preCourse").autocomplete({
-            source: availableTags
-        });
+    // $("#addPreCourseGroup").click(function(e) {
+    //     var newRowNumber = $("#preCourseTable>tbody>tr").length + 1;
+    //     let namePreCourse = "preCourse" + newRowNumber;
+    //     console.log(namePreCourse);
+    //     $("#preCourseTable>tbody").append(
+    //         "<tr class='w3-margin'>" +
+    //         "<td><input type='checkbox' name='preCourseGroupItem' /></td>" +
+    //         "<td>" +
+    //         newRowNumber +
+    //         "</td>" +
+    //         "<td><input type='text' class='preCourse' name=" +
+    //         namePreCourse + "1" +
+    //         "></td>" +
+    //         "<td><input type='text' class='preCourse' name=" +
+    //         namePreCourse + "2" +
+    //         "></td>" +
+    //         "<td><input type='text' class='preCourse' name=" +
+    //         namePreCourse + "3" +
+    //         "></td>" +
+    //         // "<td><input type='text' class='preCourse'/></td>" +
+    //         "</tr>"
+    //     );
+    //
+    // });
+    $(".preCourse").autocomplete({
+        source: availableTags
     });
     $("#deletePreCourseGroup").click(function(e) {
         var checkedCounts = $(
