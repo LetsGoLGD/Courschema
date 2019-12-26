@@ -92,6 +92,9 @@
                 <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="SubmitFilter">
                     <span>Submit</span>
                 </button>
+                <button type="submit" class="w3-btn w3-white w3-border w3-border-blue w3-round" id="download">
+                    <span>Download</span>
+                </button>
             </div>
 
 
