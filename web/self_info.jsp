@@ -87,7 +87,14 @@
             </div>
 
             <div id="board">
-
+                <%
+                    String [] notice = (String[]) session.getAttribute("notice");
+                    for (int i=0;i<notice.length;i++) {
+                %>
+                <div><%=notice[i]+ "\n"%></div>
+                <%
+                    }
+                %>
             </div>
         </div>
     </div>

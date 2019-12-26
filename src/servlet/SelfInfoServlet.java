@@ -35,6 +35,13 @@ public class SelfInfoServlet extends HttpServlet {
         request.getSession().setAttribute("stu_year",ub.getGrade());
         request.getSession().setAttribute("major",ub.getDepartment());
         request.getSession().setAttribute("id",ub.getId());
+        List<UserBean> no = us.notice(username);
+
+        String []notice = new String[no.size()];
+        for(int i = 0; i < no.size(); i++){
+            notice[i] = no.get(i).getNotice();
+        }
+        request.getSession().setAttribute("notice", notice);
         List<CourseBean> showSelf = null;
         try {
             showSelf = us.show(username);

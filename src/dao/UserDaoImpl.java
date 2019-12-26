@@ -90,6 +90,22 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public List<UserBean> notice(String username) throws Exception {
+        connection = dbutil.getConnection();
+        String sql = "select * from notice";
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        List<UserBean> list = new ArrayList<>();
+        while (resultSet.next()) {
+            UserBean ub = new UserBean();
+            ub.setNotice(resultSet.getString(2));
+            list.add(ub);
+        }
+        dbutil.closeDBResource(connection, preparedStatement, resultSet);
+        return list;
+    }
+
+    @Override
     public int getAU(String username) throws Exception {
         connection = dbutil.getConnection();
         String sql = "select is_admin from userinfo where username=?";

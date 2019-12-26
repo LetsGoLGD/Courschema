@@ -12,5 +12,7 @@ public interface UserService {
 
     List<CourseBean> show(String username) throws Exception;
 
+    List<UserBean> notice(String username);
+
     int getAU(String username) throws Exception;
 }

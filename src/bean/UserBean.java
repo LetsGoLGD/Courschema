@@ -8,6 +8,7 @@ public class UserBean {
     private String gender;
     private String grade;
     private String mail;
+    private String notice;
 
     public String getGender() {
         return gender;
@@ -63,5 +64,13 @@ public class UserBean {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
     }
 }

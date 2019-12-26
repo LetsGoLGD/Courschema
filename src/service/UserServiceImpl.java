@@ -44,6 +44,18 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public List<UserBean> notice(String username) {
+        List<UserBean> result = null;
+        try {
+            result = userDao.notice(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+    @Override
     public int getAU(String username) throws Exception {
         return userDao.getAU(username);
     }
