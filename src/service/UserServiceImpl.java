@@ -59,4 +59,9 @@ public class UserServiceImpl implements UserService{
     public int getAU(String username) throws Exception {
         return userDao.getAU(username);
     }
+
+    @Override
+    public int updatePassword(String emailAdd, String newPassword) throws Exception {
+        return userDao.updatePassword(emailAdd, newPassword);
+    }
 }

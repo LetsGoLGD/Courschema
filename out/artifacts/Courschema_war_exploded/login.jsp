@@ -57,10 +57,10 @@
     <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
         <div class="w3-container">
             <div class="w3-section">
-                <form target="iframe" action="MailServlet" method="post">
+                <form target="iframe">
                     <label><b>邮箱地址：</b></label>
                     <input name="email-address" class="w3-input w3-border w3-hover-border-black" type="text" placeholder="请输入邮箱">
-                    <button type="submit" class="w3-btn w3-btn-block w3-green w3-section w3-margin-bottom">发送邮件</button><br>
+                    <button type="button" onclick="onClickSendEmail()" class="w3-btn w3-btn-block w3-green w3-section w3-margin-bottom">发送邮件</button><br>
                 </form>
                 <iframe id="iframe" name="iframe" style="display:none;"></iframe>
             </div>
@@ -69,7 +69,6 @@
         <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
             <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-btn w3-red">Cancel</button>
         </div>
-
     </div>
 </div>
 
@@ -80,10 +79,10 @@
             <div class="w3-section">
                 <form target="iframe">
                     <label><b>Verify Code</b></label>
-                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" type="text" placeholder="Enter code">
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" type="text" placeholder="Enter code" id="inVerifyCode">
                     <label><b>New Password</b></label>
-                    <input class="w3-input w3-border w3-hover-border-black" type="text" placeholder="Enter Password">
-                    <button onclick="" class="w3-btn w3-btn-block w3-green w3-section">Change Password</button>
+                    <input class="w3-input w3-border w3-hover-border-black" type="text" placeholder="Enter Password" id="newPassword">
+                    <button onclick="changePassword()" class="w3-btn w3-btn-block w3-green w3-section">Change Password</button>
                 </form>
             </div>
         </div>

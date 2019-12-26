@@ -15,4 +15,6 @@ public interface UserService {
     List<UserBean> notice(String username);
 
     int getAU(String username) throws Exception;
+
+    int updatePassword(String emailAdd, String newPassword) throws Exception;
 }
