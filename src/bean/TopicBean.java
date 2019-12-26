@@ -25,6 +25,16 @@ public class TopicBean {
         return this.type;
     }
 
+    public static int getTypeId(String type) {
+        for(int i = 0; i < typeName.length; i++){
+            if(typeName[i].equals(type)){
+                return i + 1;
+            }
+        }
+
+        return 0;
+    }
+
     public void setType(int typeId) {
         this.type = typeName[typeId - 1];
     }

@@ -19,9 +19,9 @@ function onClickAll() {
     schema.className = "";
     water.className = "";
     self.className = "";
-    document.getElementById('post').style.display = '';
+    document.getElementById('postList').style.display = '';
     document.getElementById('selfPost').style.display = 'none';
-    let lists = document.getElementById("post").children;
+    let lists = document.getElementById("postList").children;
     for(let i = 0; i < lists.length; i++){
         let type = lists[i].innerText.trim().split(/\s+/);
         lists[i].style.display = '';
@@ -35,9 +35,9 @@ function onClickCourse() {
     schema.className = "";
     water.className = "";
     self.className = "";
-    document.getElementById('post').style.display = '';
+    document.getElementById('postList').style.display = '';
     document.getElementById('selfPost').style.display = 'none';
-    let lists = document.getElementById("post").children;
+    let lists = document.getElementById("postList").children;
     for(let i = 0; i < lists.length; i++){
         let type = lists[i].innerText.trim().split(/\s+/);
         if (type[0] !== "课程安排"){
@@ -55,9 +55,9 @@ function onClickSchema() {
     schema.className = "w3-green";
     water.className = "";
     self.className = "";
-    document.getElementById('post').style.display = '';
+    document.getElementById('postList').style.display = '';
     document.getElementById('selfPost').style.display = 'none';
-    let lists = document.getElementById("post").children;
+    let lists = document.getElementById("postList").children;
     for(let i = 0; i < lists.length; i++){
         let type = lists[i].innerText.trim().split(/\s+/);
         if (type[0] !== "培养方案"){
@@ -75,9 +75,9 @@ function onClickWater() {
     schema.className = "";
     water.className = "w3-green";
     self.className = "";
-    document.getElementById('post').style.display = '';
+    document.getElementById('postList').style.display = '';
     document.getElementById('selfPost').style.display = 'none';
-    let lists = document.getElementById("post").children;
+    let lists = document.getElementById("postList").children;
     for(let i = 0; i < lists.length; i++){
         let type = lists[i].innerText.trim().split(/\s+/);
         if (type[0] !== "水贴"){
@@ -95,12 +95,12 @@ function onClickSelf() {
     schema.className = "";
     water.className = "";
     self.className = "w3-green";
-    document.getElementById('post').style.display = 'none';
+    document.getElementById('postList').style.display = 'none';
     document.getElementById('selfPost').style.display = '';
 }
 
 function addPost(title, content, type) {
-    let lists = document.getElementById("post");
+    let lists = document.getElementById("postList");
     let li_content =　document.createElement("li");
     //TODO: get username
     li_content.className = "w3-padding-16";

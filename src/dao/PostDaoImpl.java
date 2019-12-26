@@ -61,4 +61,29 @@ public class PostDaoImpl implements PostDao {
 
         return topicBeans;
     }
+
+    @Override
+    public int addPost(String type, String userName, String content, String title) throws Exception {
+        this.connection = this.dbutil.getConnection();
+        String sql1 = "insert into topic (part, name_user, title, inside) " +
+                "values (?,?,?,?);";
+        preparedStatement=connection.prepareStatement(sql1);
+        preparedStatement.setInt(1, TopicBean.getTypeId(type));
+        preparedStatement.setString(2, userName);
+        preparedStatement.setString(4, content);
+        preparedStatement.setString(3, title);
+        return preparedStatement.executeUpdate();
+    }
+
+    @Override
+    public int addReply(String topic_id, String userName, String content) throws Exception {
+        this.connection = this.dbutil.getConnection();
+        String sql1 = "insert into floor (id_topic, id_user, inside) " +
+                "values (?,?,?);";
+        preparedStatement=connection.prepareStatement(sql1);
+        preparedStatement.setInt(1, Integer.parseInt(topic_id));
+        preparedStatement.setString(2, userName);
+        preparedStatement.setString(3, content);
+        return preparedStatement.executeUpdate();
+    }
 }

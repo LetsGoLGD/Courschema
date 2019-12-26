@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
 package servlet;
 
 import java.io.IOException;
@@ -14,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.PostServiceImpl;
 
 @WebServlet(
-        name = "ShowServlet"
+        name = "PostServlet"
 )
 public class PostServlet extends HttpServlet {
     public PostServlet() {
