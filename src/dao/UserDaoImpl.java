@@ -104,6 +104,17 @@ public class UserDaoImpl implements UserDao {
         return r;
     }
 
+    @Override
+    public int updatePassword(String emailAdd, String newPassword) throws Exception {
+        String sql = "Update userinfo ui set password = ?" +
+                "where ui.mail_address = ?;";
+        this.connection = this.dbutil.getConnection();
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setString(1, newPassword);
+        preparedStatement.setString(2, emailAdd);
+        return preparedStatement.executeUpdate();
+    }
+
     public static final String KEY_SHA = "SHA";
     public String SHAPassword(String password) throws NoSuchAlgorithmException {
         BigInteger sha = null;

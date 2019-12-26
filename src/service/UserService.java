@@ -13,4 +13,6 @@ public interface UserService {
     List<CourseBean> show(String username) throws Exception;
 
     int getAU(String username) throws Exception;
+
+    int updatePassword(String emailAdd, String newPassword) throws Exception;
 }
