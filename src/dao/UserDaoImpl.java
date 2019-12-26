@@ -81,8 +81,8 @@ public class UserDaoImpl implements UserDao {
         List<CourseBean> list = new ArrayList<>();
         while (resultSet.next()) {
             CourseBean cb= new CourseBean();
-            cb.setAbbr_name(resultSet.getString(0));
-            cb.setCourse_name(resultSet.getString(1));
+            cb.setAbbr_name(resultSet.getString(1));
+            cb.setCourse_name(resultSet.getString(2));
             list.add(cb);
         }
         dbutil.closeDBResource(connection, preparedStatement, resultSet);

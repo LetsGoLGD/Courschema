@@ -35,6 +35,21 @@ public class SelfInfoServlet extends HttpServlet {
         request.getSession().setAttribute("stu_year",ub.getGrade());
         request.getSession().setAttribute("major",ub.getDepartment());
         request.getSession().setAttribute("id",ub.getId());
+        List<CourseBean> showSelf = null;
+        try {
+            showSelf = us.show(username);
+        } catch (Exception e) {
+            System.out.println("showself is null");
+            e.printStackTrace();
+        }
+        String []abbr_name = new String[showSelf.size()];
+        String []course_name = new String[showSelf.size()];
+        for(int i = 0; i < showSelf.size(); i++){
+            abbr_name[i] = showSelf.get(i).getAbbr_name();
+            course_name[i] = showSelf.get(i).getCourse_name();
+        }
+        request.getSession().setAttribute("abbr_name", abbr_name);
+        request.getSession().setAttribute("course_name", course_name);
         request.getRequestDispatcher("self_info.jsp").forward(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

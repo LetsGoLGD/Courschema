@@ -69,15 +69,15 @@
             </div>
 
             <div id="course">
-<%--                <%--%>
-<%--                    String [] abbr_name = (String[]) session.getAttribute("abbr_name");--%>
-<%--                    String [] course_name = (String[]) session.getAttribute("course_name");--%>
-<%--                    for (int i=0;i<abbr_name.length;i++) {--%>
-<%--                %>--%>
-<%--                    <span>Course Name: <%=abbr_name[i] + " " + course_name[i]%></span>--%>
-<%--                <%--%>
-<%--                    }--%>
-<%--                %>--%>
+                <%
+                    String [] abbr_name = (String[]) session.getAttribute("abbr_name");
+                    String [] course_name = (String[]) session.getAttribute("course_name");
+                    for (int i=0;i<abbr_name.length;i++) {
+                %>
+                <div><%=abbr_name[i] + " " + course_name[i]+ "\n"%></div>
+                <%
+                    }
+                %>
             </div>
         </div>
         <div id="block3">
